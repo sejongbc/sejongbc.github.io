@@ -16,6 +16,18 @@ useHead({
 
 const theme = ref<'light' | 'dark'>('light')
 const isDarkTheme = computed(() => theme.value === 'dark')
+const showScrollTop = ref(false)
+
+const updateScrollTopVisibility = () => {
+  showScrollTop.value = window.scrollY > 520
+}
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
 
 onMounted(() => {
   const savedTheme = window.localStorage.getItem('sejongbc-theme')
@@ -28,10 +40,17 @@ onMounted(() => {
   if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
     theme.value = 'dark'
   }
+
+  updateScrollTopVisibility()
+  window.addEventListener('scroll', updateScrollTopVisibility, { passive: true })
 })
 
 watch(theme, (nextTheme) => {
   window.localStorage.setItem('sejongbc-theme', nextTheme)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', updateScrollTopVisibility)
 })
 
 const toggleTheme = () => {
@@ -56,6 +75,7 @@ const toggleTheme = () => {
         <div class="nav-links">
           <a href="#identity">팀 소개</a>
           <a href="#staff">지도자</a>
+          <a href="#recruit">선수모집</a>
           <a href="#parents">학부모 운영회</a>
           <a href="#qa">Q&amp;A</a>
         </div>
@@ -85,6 +105,18 @@ const toggleTheme = () => {
       </svg>
     </button>
 
+    <button
+      v-show="showScrollTop"
+      class="scroll-top-button"
+      type="button"
+      aria-label="최상단으로 이동"
+      @click="scrollToTop"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="m6 15 6-6 6 6" />
+      </svg>
+    </button>
+
     <section id="top" class="hero-section">
       <div class="hero-copy">
         <p class="eyebrow">세종특별자치시 대표 고교야구팀</p>
@@ -96,7 +128,7 @@ const toggleTheme = () => {
         </p>
 
         <div class="hero-actions" aria-label="바로가기">
-          <a class="primary-action" href="#qa">입단 문의</a>
+          <a class="primary-action" href="#recruit">입단 문의</a>
           <a
             class="instagram-action"
             href="https://www.instagram.com/sejongbc25?igsh=MXFjNjRwamswbHZx"
@@ -128,6 +160,50 @@ const toggleTheme = () => {
           <span>03</span>
           <strong>경기 경험 기회</strong>
           <p>타 팀 대비 출전과 실전 경험의 문이 넓게 열려 있습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="recruit" class="section recruit-section">
+      <div class="section-heading">
+        <p class="eyebrow">Recruiting</p>
+        <h2>선수모집 · 입단문의</h2>
+      </div>
+
+      <div class="recruit-layout">
+        <div class="recruit-copy">
+          <h3>세종BC에서 더 많은 실전 경험을 쌓을 선수를 기다립니다.</h3>
+          <p>
+            세종특별자치시 유일 고교야구팀이라는 장점을 바탕으로 전국체전,
+            각종 대회, 실전 중심 훈련을 통해 성장할 선수를 모집합니다.
+          </p>
+        </div>
+
+        <div class="recruit-list" aria-label="입단 문의 안내">
+          <div>
+            <span>대상</span>
+            <strong>고교야구 진학 및 이적을 고민하는 선수</strong>
+          </div>
+          <div>
+            <span>강점</span>
+            <strong>경기 경험 기회, 체계적 훈련, 컨디션 관리 지도</strong>
+          </div>
+          <div>
+            <span>문의</span>
+            <strong>공식 인스타그램 @sejongbc25 DM</strong>
+          </div>
+        </div>
+
+        <div class="recruit-actions" aria-label="입단 문의 바로가기">
+          <a
+            class="recruit-primary"
+            href="https://www.instagram.com/sejongbc25?igsh=MXFjNjRwamswbHZx"
+            target="_blank"
+            rel="noreferrer"
+          >
+            인스타그램 DM 문의
+          </a>
+          <a class="recruit-secondary" href="#qa">자주 묻는 질문 보기</a>
         </div>
       </div>
     </section>
@@ -482,6 +558,44 @@ a {
   stroke-width: 2;
 }
 
+.scroll-top-button {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 40;
+  display: inline-grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--text-strong);
+  color: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 16px 40px var(--shadow);
+  opacity: 0.78;
+  padding: 0;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.scroll-top-button:hover,
+.scroll-top-button:focus-visible {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.scroll-top-button svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.4;
+}
+
 .hero-section {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
@@ -619,6 +733,97 @@ h1 {
   font-size: clamp(32px, 5vw, 58px);
   line-height: 1.08;
   letter-spacing: 0;
+}
+
+.recruit-section {
+  background: var(--text-strong);
+  color: var(--accent);
+}
+
+.recruit-section .section-heading h2 {
+  color: var(--accent);
+}
+
+.recruit-section .eyebrow {
+  color: var(--dark-panel-text);
+}
+
+.recruit-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: 24px 42px;
+  align-items: start;
+}
+
+.recruit-copy h3 {
+  max-width: 760px;
+  margin: 0 0 14px;
+  color: var(--dark-panel-text);
+  font-size: clamp(26px, 4vw, 42px);
+  line-height: 1.18;
+}
+
+.recruit-copy p {
+  max-width: 700px;
+  margin: 0;
+  color: var(--dark-panel-muted);
+  font-size: 18px;
+  line-height: 1.72;
+}
+
+.recruit-list {
+  display: grid;
+  gap: 12px;
+}
+
+.recruit-list > div {
+  padding: 18px 20px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--profile-bg);
+}
+
+.recruit-list span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.recruit-list strong {
+  color: var(--dark-panel-text);
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+.recruit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  grid-column: 1 / -1;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.recruit-primary,
+.recruit-secondary {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 0 18px;
+  font-weight: 900;
+}
+
+.recruit-primary {
+  background: var(--accent);
+  color: #171717;
+}
+
+.recruit-secondary {
+  border: 1px solid var(--line-strong);
+  color: var(--dark-panel-text);
 }
 
 .feature-grid {
@@ -779,6 +984,7 @@ h1 {
   }
 
   .hero-section,
+  .recruit-layout,
   .feature-grid,
   .staff-layout,
   .info-columns {
@@ -815,6 +1021,11 @@ h1 {
   .primary-action,
   .instagram-action {
     width: auto;
+  }
+
+  .recruit-primary,
+  .recruit-secondary {
+    width: 100%;
   }
 }
 </style>
