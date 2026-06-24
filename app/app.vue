@@ -26,8 +26,8 @@ const showScrollTop = ref(false)
 const route = useRoute()
 type DetailKey = 'about' | 'coaches' | 'recruit' | 'parents'
 const activeDetail = ref<DetailKey | null>(null)
-const activeHeroCard = ref(0)
-const heroCards = [
+const activeKeyMessage = ref(0)
+const keyMessages = [
   {
     number: '01',
     title: '지역을 넘어 열린 기회',
@@ -44,7 +44,7 @@ const heroCards = [
     body: '지도진, 선수, 학부모가 필요한 정보를 나누며 팀의 방향을 함께 만들어갑니다.'
   }
 ]
-let heroCardTimer: ReturnType<typeof window.setInterval> | undefined
+let keyMessageTimer: ReturnType<typeof window.setInterval> | undefined
 
 const updateScrollTopVisibility = () => {
   showScrollTop.value = window.scrollY > 520
@@ -68,8 +68,8 @@ onMounted(() => {
 
   updateScrollTopVisibility()
   window.addEventListener('scroll', updateScrollTopVisibility, { passive: true })
-  heroCardTimer = window.setInterval(() => {
-    activeHeroCard.value = (activeHeroCard.value + 1) % heroCards.length
+  keyMessageTimer = window.setInterval(() => {
+    activeKeyMessage.value = (activeKeyMessage.value + 1) % keyMessages.length
   }, 3600)
 })
 
@@ -83,8 +83,8 @@ watch(activeDetail, (detail) => {
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', updateScrollTopVisibility)
-  if (heroCardTimer) {
-    window.clearInterval(heroCardTimer)
+  if (keyMessageTimer) {
+    window.clearInterval(keyMessageTimer)
   }
   document.body.style.overflow = ''
 })
@@ -171,50 +171,50 @@ const closeDetail = () => {
           전국체전에 참가합니다. 더 많은 경기 경험과 성장 기회를 원하는 선수에게
           열린 환경을 제공합니다.
         </p>
-
-        <div class="hero-actions" aria-label="바로가기">
-          <a class="phone-action" href="tel:01067400480" aria-label="입단 문의 전화 010-6740-0480">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.78 19.78 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.78 19.78 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13 1 .36 1.98.7 2.91a2 2 0 0 1-.45 2.11L8.09 10a16 16 0 0 0 6 6l1.26-1.26a2 2 0 0 1 2.11-.45c.93.34 1.91.57 2.91.7A2 2 0 0 1 22 16.92z" />
-            </svg>
-          </a>
-          <a
-            class="instagram-action"
-            href="https://www.instagram.com/sejongbc25?igsh=MXFjNjRwamswbHZx"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="세종BC 인스타그램 열기"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.2" cy="6.8" r="1.1" />
-            </svg>
-          </a>
-        </div>
       </div>
 
-      <div class="hero-board" aria-label="세종BC 핵심 정보">
-        <div class="hero-slide-card">
-          <Transition name="hero-card" mode="out-in">
-            <div :key="heroCards[activeHeroCard].number" class="hero-slide-content">
-              <span>{{ heroCards[activeHeroCard].number }}</span>
-              <strong>{{ heroCards[activeHeroCard].title }}</strong>
-              <p>{{ heroCards[activeHeroCard].body }}</p>
+      <div class="key-message-slider" aria-label="세종BC 핵심 메시지">
+        <div class="key-message-panel">
+          <Transition name="key-message" mode="out-in">
+            <div :key="keyMessages[activeKeyMessage].number" class="key-message-content">
+              <span>{{ keyMessages[activeKeyMessage].number }}</span>
+              <strong>{{ keyMessages[activeKeyMessage].title }}</strong>
+              <p>{{ keyMessages[activeKeyMessage].body }}</p>
             </div>
           </Transition>
 
-          <div class="hero-card-dots" aria-label="핵심 정보 순서">
+          <div class="key-message-dots" aria-label="핵심 메시지 순서">
             <button
-              v-for="(card, index) in heroCards"
-              :key="card.number"
+              v-for="(message, index) in keyMessages"
+              :key="message.number"
               type="button"
-              :aria-label="`${card.title} 보기`"
-              :aria-current="activeHeroCard === index"
-              @click="activeHeroCard = index"
+              :aria-label="`${message.title} 보기`"
+              :aria-current="activeKeyMessage === index"
+              @click="activeKeyMessage = index"
             />
           </div>
         </div>
+      </div>
+
+      <div class="hero-actions" aria-label="바로가기">
+        <a class="phone-action" href="tel:01067400480" aria-label="입단 문의 전화 010-6740-0480">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.78 19.78 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.78 19.78 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13 1 .36 1.98.7 2.91a2 2 0 0 1-.45 2.11L8.09 10a16 16 0 0 0 6 6l1.26-1.26a2 2 0 0 1 2.11-.45c.93.34 1.91.57 2.91.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+        </a>
+        <a
+          class="instagram-action"
+          href="https://www.instagram.com/sejongbc25?igsh=MXFjNjRwamswbHZx"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="세종BC 인스타그램 열기"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.2" cy="6.8" r="1.1" />
+          </svg>
+        </a>
       </div>
     </section>
 
@@ -768,8 +768,9 @@ h1 {
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  grid-column: 1;
   gap: 12px;
-  margin-top: 34px;
+  margin-top: -38px;
 }
 
 .primary-action,
@@ -809,45 +810,42 @@ h1 {
   stroke-width: 2;
 }
 
-.hero-board {
+.key-message-slider {
   display: grid;
+  align-self: center;
   gap: 14px;
 }
 
-.hero-slide-card {
+.key-message-panel {
   display: flex;
-  min-height: 214px;
+  min-height: 260px;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--surface-glass);
-  box-shadow: 0 20px 50px var(--shadow);
+  justify-content: center;
+  padding: 0;
 }
 
-.hero-slide-content {
-  min-height: 142px;
+.key-message-content {
+  min-height: 186px;
 }
 
-.hero-card-enter-active,
-.hero-card-leave-active {
+.key-message-enter-active,
+.key-message-leave-active {
   transition:
     opacity 260ms ease,
     transform 260ms ease;
 }
 
-.hero-card-enter-from {
+.key-message-enter-from {
   opacity: 0;
   transform: translateX(18px);
 }
 
-.hero-card-leave-to {
+.key-message-leave-to {
   opacity: 0;
   transform: translateX(-18px);
 }
 
-.hero-card-dots {
+.key-message-dots {
   display: flex;
   min-height: auto;
   gap: 8px;
@@ -859,7 +857,7 @@ h1 {
   box-shadow: none;
 }
 
-.hero-card-dots button {
+.key-message-dots button {
   width: 28px;
   height: 4px;
   border: 0;
@@ -869,23 +867,26 @@ h1 {
   padding: 0;
 }
 
-.hero-card-dots button[aria-current="true"] {
+.key-message-dots button[aria-current="true"] {
   background: var(--accent);
 }
 
-.hero-board span {
+.key-message-slider span {
   color: var(--accent-strong);
   font-size: 13px;
   font-weight: 900;
 }
 
-.hero-board strong {
+.key-message-slider strong {
   display: block;
-  margin-top: 10px;
-  font-size: 24px;
+  max-width: 620px;
+  margin-top: 14px;
+  color: var(--text-strong);
+  font-size: clamp(38px, 5vw, 72px);
+  line-height: 1.04;
 }
 
-.hero-board p,
+.key-message-slider p,
 .feature-card p,
 .profile-panel p,
 .info-columns p,
@@ -1645,6 +1646,25 @@ h1 {
     min-height: auto;
   }
 
+  .key-message-panel {
+    min-height: 220px;
+  }
+
+  .key-message-slider {
+    order: 3;
+  }
+
+  .key-message-content {
+    min-height: 154px;
+  }
+
+  .hero-actions {
+    grid-column: auto;
+    justify-content: flex-end;
+    margin-top: 2px;
+    order: 2;
+  }
+
   .notice-strip {
     align-items: flex-start;
     flex-direction: column;
@@ -1721,7 +1741,7 @@ h1 {
     padding-left: 18px;
   }
 
-  .hero-slide-card,
+  .key-message-panel,
   .feature-card,
   .profile-panel {
     padding: 22px;
