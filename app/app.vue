@@ -150,6 +150,27 @@ const closeDetail = () => {
       </svg>
     </button>
 
+    <div class="floating-contact-actions" aria-label="입단 문의 바로가기">
+      <a class="phone-action" href="tel:01067400480" aria-label="입단 문의 전화 010-6740-0480">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.78 19.78 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.78 19.78 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13 1 .36 1.98.7 2.91a2 2 0 0 1-.45 2.11L8.09 10a16 16 0 0 0 6 6l1.26-1.26a2 2 0 0 1 2.11-.45c.93.34 1.91.57 2.91.7A2 2 0 0 1 22 16.92z" />
+        </svg>
+      </a>
+      <a
+        class="instagram-action"
+        href="https://www.instagram.com/sejongbc25?igsh=MXFjNjRwamswbHZx"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="세종BC 인스타그램 열기"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.2" cy="6.8" r="1.1" />
+        </svg>
+      </a>
+    </div>
+
     <button
       v-show="showScrollTop"
       class="scroll-top-button"
@@ -194,27 +215,6 @@ const closeDetail = () => {
             />
           </div>
         </div>
-      </div>
-
-      <div class="hero-actions" aria-label="바로가기">
-        <a class="phone-action" href="tel:01067400480" aria-label="입단 문의 전화 010-6740-0480">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.78 19.78 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.78 19.78 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13 1 .36 1.98.7 2.91a2 2 0 0 1-.45 2.11L8.09 10a16 16 0 0 0 6 6l1.26-1.26a2 2 0 0 1 2.11-.45c.93.34 1.91.57 2.91.7A2 2 0 0 1 22 16.92z" />
-          </svg>
-        </a>
-        <a
-          class="instagram-action"
-          href="https://www.instagram.com/sejongbc25?igsh=MXFjNjRwamswbHZx"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="세종BC 인스타그램 열기"
-        >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="3" y="3" width="18" height="18" rx="5" />
-            <circle cx="12" cy="12" r="4" />
-            <circle cx="17.2" cy="6.8" r="1.1" />
-          </svg>
-        </a>
       </div>
     </section>
 
@@ -590,7 +590,7 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 16px max(72px, clamp(20px, 5vw, 72px)) 16px clamp(20px, 5vw, 72px);
+  padding: 16px max(156px, clamp(20px, 5vw, 72px)) 16px clamp(20px, 5vw, 72px);
   border-bottom: 1px solid var(--line);
   background: var(--topbar-bg);
   backdrop-filter: blur(16px);
@@ -681,6 +681,16 @@ button {
   stroke-width: 2;
 }
 
+.floating-contact-actions {
+  position: fixed;
+  top: 18px;
+  right: 68px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .scroll-top-button {
   position: fixed;
   right: 18px;
@@ -765,14 +775,6 @@ h1 {
   line-height: 1.62;
 }
 
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  grid-column: 1;
-  gap: 12px;
-  margin-top: -38px;
-}
-
 .primary-action,
 .phone-action,
 .instagram-action {
@@ -792,17 +794,30 @@ h1 {
 
 .phone-action,
 .instagram-action {
-  width: auto;
+  width: 40px;
+  min-height: 40px;
   padding: 0;
   border: 0;
   background: transparent;
   color: var(--text-strong);
+  opacity: 0.78;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.phone-action:hover,
+.phone-action:focus-visible,
+.instagram-action:hover,
+.instagram-action:focus-visible {
+  opacity: 1;
+  transform: scale(1.04);
 }
 
 .phone-action svg,
 .instagram-action svg {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
@@ -1544,11 +1559,6 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
-  border-top: 2px solid var(--text-strong);
-}
-
-.info-columns > div {
-  padding-top: 24px;
 }
 
 .qa-section {
@@ -1651,18 +1661,11 @@ h1 {
   }
 
   .key-message-slider {
-    order: 3;
+    order: 2;
   }
 
   .key-message-content {
     min-height: 154px;
-  }
-
-  .hero-actions {
-    grid-column: auto;
-    justify-content: flex-end;
-    margin-top: 2px;
-    order: 2;
   }
 
   .notice-strip {
@@ -1673,7 +1676,13 @@ h1 {
 
 @media (max-width: 560px) {
   .topbar {
-    padding: 14px 64px 14px 18px;
+    padding: 14px 156px 14px 18px;
+  }
+
+  .floating-contact-actions {
+    top: 16px;
+    right: 64px;
+    gap: 8px;
   }
 
   .detail-topbar {
@@ -1750,7 +1759,8 @@ h1 {
   .primary-action,
   .phone-action,
   .instagram-action {
-    width: auto;
+    width: 38px;
+    min-height: 38px;
   }
 
   .recruit-primary,
