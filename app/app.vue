@@ -1,4 +1,19 @@
 <script setup lang="ts">
+useHead({
+  title: '세종BC',
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      href: '/sejongbc-logo.svg'
+    },
+    {
+      rel: 'apple-touch-icon',
+      href: '/sejongbc-logo.svg'
+    }
+  ]
+})
+
 const theme = ref<'light' | 'dark'>('light')
 const isDarkTheme = computed(() => theme.value === 'dark')
 
@@ -30,7 +45,7 @@ const toggleTheme = () => {
 
     <nav class="topbar" aria-label="주요 메뉴">
       <a class="brand" href="#top" aria-label="세종BC 홈">
-        <span class="brand-mark">S</span>
+        <img class="brand-mark" src="/sejongbc-logo.svg" alt="" aria-hidden="true">
         <span>
           <strong>SEJONG BC</strong>
           <small>세종시 고교야구팀</small>
@@ -44,17 +59,31 @@ const toggleTheme = () => {
           <a href="#parents">학부모 운영회</a>
           <a href="#qa">Q&amp;A</a>
         </div>
-
-        <button
-          class="theme-toggle"
-          type="button"
-          :aria-pressed="isDarkTheme"
-          @click="toggleTheme"
-        >
-          {{ isDarkTheme ? 'Light' : 'Dark' }}
-        </button>
       </div>
     </nav>
+
+    <button
+      class="theme-toggle"
+      type="button"
+      :aria-label="isDarkTheme ? '라이트 모드로 전환' : '다크 모드로 전환'"
+      :aria-pressed="isDarkTheme"
+      @click="toggleTheme"
+    >
+      <svg v-if="isDarkTheme" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2" />
+        <path d="M12 20v2" />
+        <path d="m4.93 4.93 1.41 1.41" />
+        <path d="m17.66 17.66 1.41 1.41" />
+        <path d="M2 12h2" />
+        <path d="M20 12h2" />
+        <path d="m6.34 17.66-1.41 1.41" />
+        <path d="m19.07 4.93-1.41 1.41" />
+      </svg>
+      <svg v-else viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 14.7A8.5 8.5 0 0 1 9.3 4a7 7 0 1 0 10.7 10.7z" />
+      </svg>
+    </button>
 
     <section id="top" class="hero-section">
       <div class="hero-copy">
@@ -68,8 +97,18 @@ const toggleTheme = () => {
 
         <div class="hero-actions" aria-label="바로가기">
           <a class="primary-action" href="#qa">입단 문의</a>
-          <a class="secondary-action" href="#qa">
-            Instagram 연결 예정
+          <a
+            class="instagram-action"
+            href="https://www.instagram.com/sejongbc25?igsh=MXFjNjRwamswbHZx"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="세종BC 인스타그램 열기"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.2" cy="6.8" r="1.1" />
+            </svg>
           </a>
         </div>
       </div>
@@ -249,8 +288,8 @@ const toggleTheme = () => {
         <details>
           <summary>문의는 어디로 하면 되나요?</summary>
           <p>
-            공식 인스타그램 계정명과 문의 연락처가 확정되면 입단, 훈련 참관,
-            운영회 관련 질문을 바로 연결할 수 있도록 반영합니다.
+            공식 인스타그램 @sejongbc25를 통해 입단, 훈련 참관, 운영회 관련
+            질문을 확인할 수 있습니다.
           </p>
         </details>
       </div>
@@ -352,7 +391,7 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 16px clamp(20px, 5vw, 72px);
+  padding: 16px max(72px, clamp(20px, 5vw, 72px)) 16px clamp(20px, 5vw, 72px);
   border-bottom: 1px solid var(--line);
   background: var(--topbar-bg);
   backdrop-filter: blur(16px);
@@ -366,14 +405,11 @@ a {
 }
 
 .brand-mark {
-  display: inline-grid;
   width: 40px;
   height: 40px;
-  place-items: center;
   border-radius: 8px;
-  background: var(--text-strong);
-  color: var(--accent);
-  font-weight: 900;
+  box-shadow: 0 0 0 1px var(--line);
+  object-fit: contain;
 }
 
 .brand strong,
@@ -410,16 +446,40 @@ a {
 }
 
 .theme-toggle {
-  min-width: 72px;
-  min-height: 36px;
-  border: 1px solid var(--line-strong);
-  border-radius: 8px;
-  background: var(--text-strong);
-  color: var(--accent);
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 40;
+  display: inline-grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-strong);
   cursor: pointer;
-  font: inherit;
-  font-size: 13px;
-  font-weight: 900;
+  opacity: 0.62;
+  padding: 0;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.theme-toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
 }
 
 .hero-section {
@@ -476,7 +536,7 @@ h1 {
 }
 
 .primary-action,
-.secondary-action {
+.instagram-action {
   display: inline-flex;
   min-height: 48px;
   align-items: center;
@@ -491,10 +551,22 @@ h1 {
   color: var(--accent);
 }
 
-.secondary-action {
-  border: 1px solid var(--line-strong);
-  background: var(--accent);
-  color: #171717;
+.instagram-action {
+  width: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-strong);
+}
+
+.instagram-action svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
 }
 
 .hero-board {
@@ -725,7 +797,7 @@ h1 {
 
 @media (max-width: 560px) {
   .topbar {
-    padding: 14px 18px;
+    padding: 14px 64px 14px 18px;
   }
 
   .section,
@@ -741,8 +813,8 @@ h1 {
   }
 
   .primary-action,
-  .secondary-action {
-    width: 100%;
+  .instagram-action {
+    width: auto;
   }
 }
 </style>

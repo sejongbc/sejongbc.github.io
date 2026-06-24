@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>세종BC 글자 디자인 시안</title>
+    <style>
+      :root {
+        color: #171717;
+        background: #f7f4ea;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 40px;
+        background:
+          linear-gradient(135deg, rgba(246, 190, 0, 0.22), transparent 34%),
+          #f7f4ea;
+      }
+
+      main {
+        max-width: 1220px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(34px, 6vw, 64px);
+        line-height: 1;
+      }
+
+      p {
+        max-width: 780px;
+        margin: 0 0 30px;
+        color: #5f594d;
+        line-height: 1.7;
+        word-break: keep-all;
+      }
+
+      .section-title {
+        margin: 42px 0 16px;
+        font-size: 24px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      article {
+        border: 1px solid rgba(23, 23, 23, 0.14);
+        border-radius: 8px;
+        background: #fffdf6;
+        overflow: hidden;
+      }
+
+      .preview {
+        display: grid;
+        min-height: 220px;
+        place-items: center;
+        padding: 24px;
+        background:
+          linear-gradient(90deg, #ffffff 0 50%, #171717 50% 100%);
+      }
+
+      .preview img {
+        width: min(100%, 520px);
+        max-height: 190px;
+        object-fit: contain;
+      }
+
+      .meta {
+        padding: 18px;
+      }
+
+      h2 {
+        margin: 0 0 6px;
+        font-size: 20px;
+      }
+
+      code {
+        color: #6b6250;
+        font-size: 13px;
+      }
+
+      @media (max-width: 720px) {
+        body {
+          padding: 24px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>SJ 중심 글자 디자인</h1>
+      <p>풀네임으로 쓸 때도 SJ가 먼저 보이고, SJ만 따로 떼어도 독립 로고처럼 성립하는 타입 시스템 시안입니다. 각 방향은 풀네임 배열과 SJ 단독 로고형을 함께 비교합니다.</p>
+
+      <h2 class="section-title">순수 워드마크</h2>
+      <section class="grid" aria-label="Sejong BaseBall Club 글자 시안">
+        <article>
+          <div class="preview"><img src="./type-variants/sejong-bbc-block.svg" alt="Block 글자 시안"></div>
+          <div class="meta"><h2>01 Block</h2><code>/type-variants/sejong-bbc-block.svg</code></div>
+        </article>
+        <article>
+          <div class="preview"><img src="./type-variants/sejong-bbc-italic.svg" alt="Italic 글자 시안"></div>
+          <div class="meta"><h2>02 Italic</h2><code>/type-variants/sejong-bbc-italic.svg</code></div>
+        </article>
+        <article>
+          <div class="preview"><img src="./type-variants/sejong-bbc-white-outline.svg" alt="White Outline 글자 시안"></div>
+          <div class="meta"><h2>03 White Outline</h2><code>/type-variants/sejong-bbc-white-outline.svg</code></div>
+        </article>
+        <article>
+          <div class="preview"><img src="./type-variants/sejong-bbc-serif.svg" alt="Serif 글자 시안"></div>
+          <div class="meta"><h2>04 Serif</h2><code>/type-variants/sejong-bbc-serif.svg</code></div>
+        </article>
+        <article>
+          <div class="preview"><img src="./type-variants/sejong-bbc-compact.svg" alt="Compact 글자 시안"></div>
+          <div class="meta"><h2>05 Compact</h2><code>/type-variants/sejong-bbc-compact.svg</code></div>
+        </article>
+        <article>
+          <div class="preview"><img src="./type-variants/sejong-bbc-clean.svg" alt="Clean 글자 시안"></div>
+          <div class="meta"><h2>06 Clean</h2><code>/type-variants/sejong-bbc-clean.svg</code></div>
+        </article>
+        <article>
+          <div class="preview"><img src="./type-variants/sj-active-stack.svg" alt="SJ Active Stack 글자 시안"></div>
+          <div class="meta"><h2>07 SJ Active Stack</h2><code>/type-variants/sj-active-stack.svg</code></div>
+        </article>
+        <article>
+          <div class="preview"><img src="./type-variants/sj-power-lockup.svg" alt="SJ Power Lockup 글자 시안"></div>
+          <div class="meta"><h2>08 SJ Power Lockup</h2><code>/type-variants/sj-power-lockup.svg</code></div>
+        </article>
+        <article>
+          <div class="preview"><img src="./type-variants/sj-logo-type.svg" alt="SJ Logo Type 글자 시안"></div>
+          <div class="meta"><h2>09 SJ Logo Type</h2><code>/type-variants/sj-logo-type.svg</code></div>
+        </article>
+        <article>
+          <div class="preview"><img src="./type-variants/sj-impact-row.svg" alt="SJ Impact Row 글자 시안"></div>
+          <div class="meta"><h2>10 SJ Impact Row</h2><code>/type-variants/sj-impact-row.svg</code></div>
+        </article>
+        <article>
+          <div class="preview"><img src="./type-variants/sj-system-strike-full.svg" alt="SJ Strike 풀네임 글자 시안"></div>
+          <div class="meta"><h2>11 Strike Full</h2><code>/type-variants/sj-system-strike-full.svg</code></div>
+        </article>
+        <article>
+          <div class="preview"><img src="./type-variants/sj-system-strike-mark.svg" alt="SJ Strike 단독 로고 시안"></div>
+          <div class="meta"><h2>12 Strike SJ</h2><code>/type-variants/sj-system-strike-mark.svg</code></div>
+        </article>
+        <article>
+          <div class="preview"><img src="./type-variants/sj-system-block-full.svg" alt="SJ Block 풀네임 글자 시안"></div>
+          <div class="meta"><h2>13 Block Full</h2><code>/type-variants/sj-system-block-full.svg</code></div>
+        </article>
+        <article>
+          <div class="preview"><img src="./type-variants/sj-system-block-mark.svg" alt="SJ Block 단독 로고 시안"></div>
+          <div class="meta"><h2>14 Block SJ</h2><code>/type-variants/sj-system-block-mark.svg</code></div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

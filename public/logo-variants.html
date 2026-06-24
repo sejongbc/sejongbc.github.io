@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>세종BC 로고 시안</title>
+    <style>
+      :root {
+        color: #171717;
+        background: #f7f4ea;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 40px;
+        background:
+          linear-gradient(135deg, rgba(246, 190, 0, 0.22), transparent 34%),
+          #f7f4ea;
+      }
+
+      main {
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(34px, 6vw, 64px);
+        line-height: 1;
+      }
+
+      p {
+        max-width: 760px;
+        margin: 0 0 28px;
+        color: #5f594d;
+        line-height: 1.7;
+        word-break: keep-all;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      article {
+        border: 1px solid rgba(23, 23, 23, 0.14);
+        border-radius: 8px;
+        background: #fffdf6;
+        overflow: hidden;
+      }
+
+      .preview {
+        display: grid;
+        min-height: 280px;
+        place-items: center;
+        padding: 28px;
+        background: #171717;
+      }
+
+      .preview img {
+        width: min(100%, 220px);
+        max-height: 220px;
+        object-fit: contain;
+      }
+
+      .preview.wide img {
+        width: min(100%, 420px);
+      }
+
+      .meta {
+        padding: 18px;
+      }
+
+      h2 {
+        margin: 0 0 6px;
+        font-size: 20px;
+      }
+
+      code {
+        color: #6b6250;
+        font-size: 13px;
+      }
+
+      @media (max-width: 920px) {
+        body {
+          padding: 24px;
+        }
+
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 620px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>세종BC 로고 시안</h1>
+      <p>벤치마크의 강한 외곽선, 기울어진 속도감, 원형 엠블럼 구성을 참고하되 세종BC의 진한 노랑, 검정, 흰색 컬러와 SJ, SejongBC, Sejong BaseBall Club 표기를 중심으로 재해석한 시안입니다.</p>
+
+      <section class="grid" aria-label="로고 시안 목록">
+        <article>
+          <div class="preview"><img src="/logo-variants/sj-strike.svg" alt="SJ Strike 로고 시안"></div>
+          <div class="meta"><h2>01 SJ Strike</h2><code>/logo-variants/sj-strike.svg</code></div>
+        </article>
+        <article>
+          <div class="preview"><img src="/logo-variants/base-crest.svg" alt="Base Crest 로고 시안"></div>
+          <div class="meta"><h2>02 Base Crest</h2><code>/logo-variants/base-crest.svg</code></div>
+        </article>
+        <article>
+          <div class="preview"><img src="/logo-variants/round-club.svg" alt="Round Club 로고 시안"></div>
+          <div class="meta"><h2>03 Round Club</h2><code>/logo-variants/round-club.svg</code></div>
+        </article>
+        <article>
+          <div class="preview"><img src="/logo-variants/wing-monogram.svg" alt="Wing Monogram 로고 시안"></div>
+          <div class="meta"><h2>04 Wing Monogram</h2><code>/logo-variants/wing-monogram.svg</code></div>
+        </article>
+        <article>
+          <div class="preview wide"><img src="/logo-variants/wordmark.svg" alt="Wordmark 로고 시안"></div>
+          <div class="meta"><h2>05 Wordmark</h2><code>/logo-variants/wordmark.svg</code></div>
+        </article>
+        <article>
+          <div class="preview"><img src="./logo-variants/king-sejong-mascot.svg" alt="King Sejong Mascot 로고 시안"></div>
+          <div class="meta"><h2>06 King Sejong Mascot</h2><code>/logo-variants/king-sejong-mascot.svg</code></div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Sejong BC crossed bats SJ logo</title>
+  <desc id="desc">A simple black and deep yellow logo with crossed baseball bats, a baseball shape, and SJ initials.</desc>
+  <rect width="512" height="512" rx="112" fill="#111111"/>
+  <circle cx="256" cy="256" r="220" fill="#f6be00"/>
+  <circle cx="256" cy="256" r="202" fill="#111111"/>
+
+  <g fill="#f6be00">
+    <rect x="230" y="118" width="38" height="310" rx="19" transform="rotate(-42 249 273)"/>
+    <rect x="244" y="118" width="38" height="310" rx="19" transform="rotate(42 263 273)"/>
+    <circle cx="143" cy="392" r="22"/>
+    <circle cx="369" cy="392" r="22"/>
+  </g>
+
+  <circle cx="256" cy="120" r="34" fill="#f6be00" stroke="#111111" stroke-width="10"/>
+  <path
+    d="M238 103c13 10 19 25 17 43"
+    fill="none"
+    stroke="#111111"
+    stroke-width="5"
+    stroke-linecap="round"
+    opacity=".78"
+  />
+  <path
+    d="M274 103c-13 10-19 25-17 43"
+    fill="none"
+    stroke="#111111"
+    stroke-width="5"
+    stroke-linecap="round"
+    opacity=".78"
+  />
+
+  <path d="M128 208h256v140L256 442 128 348z" fill="#111111" stroke="#f6be00" stroke-width="14" stroke-linejoin="round"/>
+  <text
+    x="256"
+    y="346"
+    text-anchor="middle"
+    font-family="Arial Black, Impact, system-ui, sans-serif"
+    font-size="166"
+    font-weight="900"
+    letter-spacing="-13"
+    fill="#f6be00"
+  >SJ</text>
+</svg>
