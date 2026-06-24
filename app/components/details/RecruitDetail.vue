@@ -25,8 +25,9 @@
       <section>
         <h3>입단 문의 흐름</h3>
         <p>
-          전화 또는 인스타그램 DM 문의, 선수 정보 확인, 상담 및 훈련 참관, 입단 가능
-          여부 협의 순서로 안내합니다.
+          입단 상담은 010-6740-0480 (신진호 감독)으로 문의한 뒤 선수 정보 확인, 상담 및 훈련 참관,
+          입단 가능 여부 협의 순서로 안내합니다.
+          팀 소식과 가벼운 관심 문의는 공식 인스타그램에서 확인할 수 있습니다.
         </p>
       </section>
       <section>
@@ -41,10 +42,10 @@
 
   <div class="drawer-actions">
     <a href="tel:01067400480">
-      전화 문의
+      010-6740-0480 (신진호 감독)
     </a>
     <a href="https://www.instagram.com/sejongbc25?igsh=MXFjNjRwamswbHZx" target="_blank" rel="noreferrer">
-      인스타그램 DM 문의
+      공식 인스타그램 보기
     </a>
   </div>
 </template>

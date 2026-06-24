@@ -107,7 +107,7 @@ const closeDetail = () => {
     <NuxtRouteAnnouncer />
 
     <template v-if="route.path === '/'">
-    <nav class="topbar" aria-label="주요 메뉴">
+    <header class="topbar">
       <a class="brand" href="#top" aria-label="세종BC 홈">
         <img class="brand-mark" src="/sejongbc-logo.svg" alt="" aria-hidden="true">
         <span>
@@ -116,60 +116,59 @@ const closeDetail = () => {
         </span>
       </a>
 
-      <div class="nav-menu">
-        <div class="nav-links">
-          <a href="#identity">팀 소개</a>
-          <a href="#staff">지도자</a>
-          <a href="#recruit">선수모집</a>
-          <a href="#parents">학부모 운영회</a>
-          <a href="#qa">Q&amp;A</a>
-        </div>
+      <div class="topbar-actions" aria-label="상단 바로가기">
+        <a class="phone-action" href="tel:01067400480" aria-label="입단 상담 010-6740-0480 신진호 감독">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.78 19.78 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.78 19.78 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13 1 .36 1.98.7 2.91a2 2 0 0 1-.45 2.11L8.09 10a16 16 0 0 0 6 6l1.26-1.26a2 2 0 0 1 2.11-.45c.93.34 1.91.57 2.91.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+        </a>
+        <a
+          class="instagram-action"
+          href="https://www.instagram.com/sejongbc25?igsh=MXFjNjRwamswbHZx"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="세종BC 공식 인스타그램 열기"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.2" cy="6.8" r="1.1" />
+          </svg>
+        </a>
+        <button
+          class="theme-toggle"
+          type="button"
+          :aria-label="isDarkTheme ? '라이트 모드로 전환' : '다크 모드로 전환'"
+          :aria-pressed="isDarkTheme"
+          @click="toggleTheme"
+        >
+          <svg v-if="isDarkTheme" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2" />
+            <path d="M12 20v2" />
+            <path d="m4.93 4.93 1.41 1.41" />
+            <path d="m17.66 17.66 1.41 1.41" />
+            <path d="M2 12h2" />
+            <path d="M20 12h2" />
+            <path d="m6.34 17.66-1.41 1.41" />
+            <path d="m19.07 4.93-1.41 1.41" />
+          </svg>
+          <svg v-else viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 14.7A8.5 8.5 0 0 1 9.3 4a7 7 0 1 0 10.7 10.7z" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <nav class="tab-menu" aria-label="주요 메뉴">
+      <div class="nav-links">
+        <a href="#identity">팀 소개</a>
+        <a href="#staff">지도자</a>
+        <a href="#recruit">선수모집</a>
+        <a href="#parents">학부모 운영회</a>
+        <a href="#qa">Q&amp;A</a>
       </div>
     </nav>
-
-    <button
-      class="theme-toggle"
-      type="button"
-      :aria-label="isDarkTheme ? '라이트 모드로 전환' : '다크 모드로 전환'"
-      :aria-pressed="isDarkTheme"
-      @click="toggleTheme"
-    >
-      <svg v-if="isDarkTheme" viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="4" />
-        <path d="M12 2v2" />
-        <path d="M12 20v2" />
-        <path d="m4.93 4.93 1.41 1.41" />
-        <path d="m17.66 17.66 1.41 1.41" />
-        <path d="M2 12h2" />
-        <path d="M20 12h2" />
-        <path d="m6.34 17.66-1.41 1.41" />
-        <path d="m19.07 4.93-1.41 1.41" />
-      </svg>
-      <svg v-else viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M20 14.7A8.5 8.5 0 0 1 9.3 4a7 7 0 1 0 10.7 10.7z" />
-      </svg>
-    </button>
-
-    <div class="floating-contact-actions" aria-label="입단 문의 바로가기">
-      <a class="phone-action" href="tel:01067400480" aria-label="입단 문의 전화 010-6740-0480">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.78 19.78 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.78 19.78 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13 1 .36 1.98.7 2.91a2 2 0 0 1-.45 2.11L8.09 10a16 16 0 0 0 6 6l1.26-1.26a2 2 0 0 1 2.11-.45c.93.34 1.91.57 2.91.7A2 2 0 0 1 22 16.92z" />
-        </svg>
-      </a>
-      <a
-        class="instagram-action"
-        href="https://www.instagram.com/sejongbc25?igsh=MXFjNjRwamswbHZx"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="세종BC 인스타그램 열기"
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="5" />
-          <circle cx="12" cy="12" r="4" />
-          <circle cx="17.2" cy="6.8" r="1.1" />
-        </svg>
-      </a>
-    </div>
 
     <button
       v-show="showScrollTop"
@@ -238,7 +237,7 @@ const closeDetail = () => {
           </p>
         </div>
 
-        <div class="recruit-list" aria-label="입단 문의 안내">
+        <div class="recruit-list" aria-label="입단 안내">
           <div>
             <span>대상</span>
             <strong>고교야구 진학 및 이적을 고민하는 선수</strong>
@@ -247,28 +246,32 @@ const closeDetail = () => {
             <span>강점</span>
             <strong>경기 경험 기회, 체계적 훈련, 컨디션 관리 지도</strong>
           </div>
-          <div>
-            <span>문의</span>
-            <strong>010-6740-0480 또는 공식 인스타그램 @sejongbc25 DM</strong>
-          </div>
         </div>
 
-        <div class="recruit-actions" aria-label="입단 문의 바로가기">
-          <a
-            class="recruit-primary"
-            href="tel:01067400480"
-          >
-            전화 문의
-          </a>
-          <a
-            class="recruit-secondary"
-            href="https://www.instagram.com/sejongbc25?igsh=MXFjNjRwamswbHZx"
-            target="_blank"
-            rel="noreferrer"
-          >
-            인스타그램 DM 문의
-          </a>
-          <a class="recruit-secondary" href="#qa">자주 묻는 질문 보기</a>
+        <div class="recruit-contact-grid" aria-label="문의 채널 안내">
+          <article class="recruit-contact-card primary">
+            <span>입단 상담</span>
+            <h3>선수 진학, 이적, 훈련 참관 상담</h3>
+            <p>
+              입단과 관련된 구체적인 상담은 아래 연락처로 문의해 주세요.
+            </p>
+            <a href="tel:01067400480">010-6740-0480 (신진호 감독)</a>
+          </article>
+
+          <article class="recruit-contact-card secondary">
+            <span>가벼운 관심 문의</span>
+            <h3>팀 소식과 활동 분위기 확인</h3>
+            <p>
+              팀 분위기, 활동 사진, 간단한 관심 문의는 공식 인스타그램에서 확인할 수 있습니다.
+            </p>
+            <a
+              href="https://www.instagram.com/sejongbc25?igsh=MXFjNjRwamswbHZx"
+              target="_blank"
+              rel="noreferrer"
+            >
+              공식 인스타그램 @sejongbc25
+            </a>
+          </article>
         </div>
       </div>
     </section>
@@ -473,8 +476,9 @@ const closeDetail = () => {
         <details>
           <summary>문의는 어디로 하면 되나요?</summary>
           <p>
-            전화 010-6740-0480 또는 공식 인스타그램 @sejongbc25를 통해 입단,
-            훈련 참관, 운영회 관련 질문을 확인할 수 있습니다.
+            입단 상담, 훈련 참관, 이적 관련 문의는 010-6740-0480 (신진호 감독)으로
+            확인할 수 있습니다. 팀 소식과 가벼운 관심 문의는 공식 인스타그램 @sejongbc25를
+            이용해 주세요.
           </p>
         </details>
       </div>
@@ -583,14 +587,17 @@ button {
 }
 
 .topbar {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 20;
+  right: 0;
+  left: 0;
+  z-index: 50;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 16px max(156px, clamp(20px, 5vw, 72px)) 16px clamp(20px, 5vw, 72px);
+  min-height: 69px;
+  padding: 14px clamp(20px, 5vw, 72px);
   border-bottom: 1px solid var(--line);
   background: var(--topbar-bg);
   backdrop-filter: blur(16px);
@@ -626,7 +633,7 @@ button {
 .nav-links {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 8px 18px;
   color: var(--nav-muted);
   font-size: 14px;
@@ -637,18 +644,24 @@ button {
   padding: 8px 0;
 }
 
-.nav-menu {
+.tab-menu {
+  position: relative;
+  z-index: 10;
+  margin-top: 69px;
+  padding: 10px clamp(20px, 5vw, 72px);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-glass);
+}
+
+.topbar-actions {
   display: flex;
+  justify-self: end;
+  flex-shrink: 0;
   align-items: center;
-  justify-content: flex-end;
-  gap: 18px;
+  gap: 8px;
 }
 
 .theme-toggle {
-  position: fixed;
-  top: 18px;
-  right: 18px;
-  z-index: 40;
   display: inline-grid;
   width: 40px;
   height: 40px;
@@ -679,16 +692,6 @@ button {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 2;
-}
-
-.floating-contact-actions {
-  position: fixed;
-  top: 18px;
-  right: 68px;
-  z-index: 40;
-  display: flex;
-  align-items: center;
-  gap: 12px;
 }
 
 .scroll-top-button {
@@ -736,6 +739,7 @@ button {
   align-items: center;
   min-height: calc(100vh - 73px);
   padding: clamp(48px, 7vw, 92px) clamp(20px, 5vw, 72px);
+  scroll-margin-top: 86px;
 }
 
 .hero-copy {
@@ -913,6 +917,7 @@ h1 {
 
 .section {
   padding: clamp(62px, 9vw, 112px) clamp(20px, 5vw, 72px);
+  scroll-margin-top: 86px;
 }
 
 .section-heading {
@@ -1423,16 +1428,70 @@ h1 {
   word-break: keep-all;
 }
 
-.recruit-actions {
-  display: flex;
-  flex-wrap: wrap;
+.recruit-contact-grid {
+  display: grid;
   grid-column: 1 / -1;
-  gap: 12px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 14px;
   margin-top: 8px;
 }
 
-.recruit-primary,
-.recruit-secondary {
+.recruit-contact-card {
+  display: flex;
+  min-height: 220px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.recruit-contact-card.primary {
+  background: var(--accent);
+  color: #171717;
+}
+
+.recruit-contact-card.secondary {
+  border: 1px solid rgba(246, 190, 0, 0.34);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--dark-panel-text);
+}
+
+.recruit-contact-card span {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.recruit-contact-card.primary span {
+  color: rgba(23, 23, 23, 0.72);
+}
+
+.recruit-contact-card.secondary span {
+  color: var(--accent);
+}
+
+.recruit-contact-card h3 {
+  margin: 0;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.18;
+}
+
+.recruit-contact-card p {
+  margin: 14px 0 22px;
+  line-height: 1.65;
+}
+
+.recruit-contact-card.primary p {
+  color: rgba(23, 23, 23, 0.76);
+}
+
+.recruit-contact-card.secondary p {
+  color: var(--dark-panel-muted);
+}
+
+.recruit-contact-card a {
   display: inline-flex;
   min-height: 48px;
   align-items: center;
@@ -1444,12 +1503,12 @@ h1 {
   font-weight: 900;
 }
 
-.recruit-primary {
-  background: var(--accent);
-  color: #171717;
+.recruit-contact-card.primary a {
+  background: #171717;
+  color: var(--accent);
 }
 
-.recruit-secondary {
+.recruit-contact-card.secondary a {
   border: 1px solid rgba(246, 190, 0, 0.34);
   background: transparent;
   color: var(--dark-panel-text);
@@ -1592,19 +1651,24 @@ h1 {
 
 @media (max-width: 900px) {
   .topbar {
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 14px clamp(20px, 5vw, 72px);
   }
 
-  .nav-menu {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
+  .tab-menu {
+    overflow-x: auto;
+    padding: 9px clamp(20px, 5vw, 72px);
+    scrollbar-width: none;
+  }
+
+  .tab-menu::-webkit-scrollbar {
+    display: none;
   }
 
   .nav-links {
-    justify-content: flex-start;
+    flex-wrap: nowrap;
+    min-width: max-content;
   }
 
   .hero-section,
@@ -1676,13 +1740,35 @@ h1 {
 
 @media (max-width: 560px) {
   .topbar {
-    padding: 14px 156px 14px 18px;
+    padding: 14px 18px;
+    gap: 10px;
   }
 
-  .floating-contact-actions {
-    top: 16px;
-    right: 64px;
+  .brand {
     gap: 8px;
+    min-width: 0;
+  }
+
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand strong {
+    font-size: 13px;
+  }
+
+  .brand small {
+    font-size: 10px;
+  }
+
+  .topbar-actions {
+    gap: 4px;
+  }
+
+  .tab-menu {
+    padding-right: 18px;
+    padding-left: 18px;
   }
 
   .detail-topbar {
@@ -1759,12 +1845,31 @@ h1 {
   .primary-action,
   .phone-action,
   .instagram-action {
-    width: 38px;
-    min-height: 38px;
+    width: 34px;
+    min-height: 34px;
   }
 
-  .recruit-primary,
-  .recruit-secondary {
+  .theme-toggle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .phone-action svg,
+  .instagram-action svg,
+  .theme-toggle svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .recruit-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recruit-contact-card {
+    min-height: auto;
+  }
+
+  .recruit-contact-card a {
     width: 100%;
   }
 }
