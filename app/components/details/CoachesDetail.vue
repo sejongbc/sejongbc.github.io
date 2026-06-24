@@ -11,15 +11,15 @@
 
   <div class="drawer-body-grid">
     <div class="drawer-photo-placeholder">
-      <span>감독 · 코치 프로필 사진</span>
+      <span>감독 신진호 · 수석코치 김선규 프로필 사진</span>
     </div>
 
     <div class="drawer-content-list">
       <section>
         <h3>지도자 이력과 약력</h3>
         <p>
-          감독과 코치의 선수 경력, 지도 경력, 자격 사항, 주요 성과를 사진과 함께
-          정리하는 영역입니다.
+          감독 신진호와 수석코치 김선규의 선수 경력, 지도 경력, 자격 사항, 주요 성과를
+          사진과 함께 정리하는 영역입니다.
         </p>
       </section>
       <section>

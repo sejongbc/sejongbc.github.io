@@ -292,8 +292,8 @@ const closeDetail = () => {
     <section id="identity" class="section identity-section">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">Why Sejong BC</p>
-          <h2>세종BC가 선수에게 주는 환경</h2>
+          <p class="eyebrow">Team Introduction</p>
+          <h2>선수의 성장 기회가 분명한 팀</h2>
         </div>
         <button class="heading-detail-action" type="button" @click="openDetail('about')">
           자세히 보기 &gt;
@@ -371,7 +371,7 @@ const closeDetail = () => {
 
       <div class="staff-layout">
         <article class="profile-panel">
-          <p class="role">감독</p>
+          <p class="role">감독 신진호</p>
           <h3>열정과 책임감으로 이끄는 젊은 감독</h3>
           <p>
             권위적인 방식보다 선수와 직접 소통하는 방식을 중시합니다. 소탈한
@@ -386,7 +386,7 @@ const closeDetail = () => {
         </article>
 
         <article class="profile-panel accent">
-          <p class="role">코치</p>
+          <p class="role">수석코치 김선규</p>
           <h3>체계적이고 강도 있는 훈련 설계</h3>
           <p>
             선수 시절부터 성실하고 체계적인 훈련을 이어온 지도자로, 기본기와
@@ -400,21 +400,13 @@ const closeDetail = () => {
           </ul>
         </article>
       </div>
-
-      <div class="notice-strip">
-        <strong>지도자 상세 안내</strong>
-        <span>
-          감독 및 코치의 선수 경력, 지도 경력, 자격 사항, 주요 성과를 별도
-          프로필 페이지로 확장할 수 있습니다.
-        </span>
-      </div>
     </section>
 
     <section id="parents" class="section parents-section">
       <div class="section-heading">
         <div>
           <p class="eyebrow">Parents Committee</p>
-          <h2>학부모 운영회 안내</h2>
+          <h2>학부모 운영회</h2>
         </div>
         <button class="heading-detail-action" type="button" @click="openDetail('parents')">
           자세히 보기 &gt;
@@ -927,8 +919,7 @@ h1 {
 .feature-card p,
 .profile-panel p,
 .info-columns p,
-.qa-list p,
-.notice-strip span {
+.qa-list p {
   color: var(--muted);
   line-height: 1.72;
 }
@@ -1612,22 +1603,6 @@ h1 {
   line-height: 1.6;
 }
 
-.notice-strip {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 18px;
-  padding: 22px 24px;
-  border-radius: 8px;
-  background: var(--accent);
-  color: #171717;
-}
-
-.notice-strip strong {
-  min-width: 190px;
-}
-
 .parents-section {
   background: var(--surface);
 }
@@ -1750,10 +1725,6 @@ h1 {
     min-height: 154px;
   }
 
-  .notice-strip {
-    align-items: flex-start;
-    flex-direction: column;
-  }
 }
 
 @media (max-width: 560px) {
