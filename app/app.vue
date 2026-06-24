@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import DetailOverlay from './components/DetailOverlay.vue'
+import AboutDetail from './components/details/AboutDetail.vue'
+import CoachesDetail from './components/details/CoachesDetail.vue'
+import ParentsDetail from './components/details/ParentsDetail.vue'
+import RecruitDetail from './components/details/RecruitDetail.vue'
+
 useHead({
   title: '세종BC',
   link: [
@@ -17,6 +23,9 @@ useHead({
 const theme = ref<'light' | 'dark'>('light')
 const isDarkTheme = computed(() => theme.value === 'dark')
 const showScrollTop = ref(false)
+const route = useRoute()
+type DetailKey = 'about' | 'coaches' | 'recruit' | 'parents'
+const activeDetail = ref<DetailKey | null>(null)
 
 const updateScrollTopVisibility = () => {
   showScrollTop.value = window.scrollY > 520
@@ -46,12 +55,25 @@ watch(theme, (nextTheme) => {
   window.localStorage.setItem('sejongbc-theme', nextTheme)
 })
 
+watch(activeDetail, (detail) => {
+  document.body.style.overflow = detail ? 'hidden' : ''
+})
+
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', updateScrollTopVisibility)
+  document.body.style.overflow = ''
 })
 
 const toggleTheme = () => {
   theme.value = isDarkTheme.value ? 'light' : 'dark'
+}
+
+const openDetail = (detail: DetailKey) => {
+  activeDetail.value = detail
+}
+
+const closeDetail = () => {
+  activeDetail.value = null
 }
 </script>
 
@@ -59,6 +81,7 @@ const toggleTheme = () => {
   <main class="site-shell" :data-theme="theme">
     <NuxtRouteAnnouncer />
 
+    <template v-if="route.path === '/'">
     <nav class="topbar" aria-label="주요 메뉴">
       <a class="brand" href="#top" aria-label="세종BC 홈">
         <img class="brand-mark" src="/sejongbc-logo.svg" alt="" aria-hidden="true">
@@ -145,26 +168,31 @@ const toggleTheme = () => {
       <div class="hero-board" aria-label="세종BC 핵심 정보">
         <div>
           <span>01</span>
-          <strong>세종시 유일팀</strong>
-          <p>같은 지역 내 이적 패널티 부담 없이 진로와 훈련 환경을 고민할 수 있습니다.</p>
+          <strong>지역 기반</strong>
+          <p>세종에서 훈련과 진학, 대회 준비를 함께 이어갈 수 있는 팀입니다.</p>
         </div>
         <div>
           <span>02</span>
-          <strong>전국체전 참가</strong>
-          <p>세종시 대표팀으로 매년 전국 무대 경험을 쌓을 수 있습니다.</p>
+          <strong>성장 중심</strong>
+          <p>선수의 현재 기량보다 태도, 반복, 실전 적응력을 함께 봅니다.</p>
         </div>
         <div>
           <span>03</span>
-          <strong>경기 경험 기회</strong>
-          <p>타 팀 대비 출전과 실전 경험의 문이 넓게 열려 있습니다.</p>
+          <strong>소통하는 팀</strong>
+          <p>지도진, 선수, 학부모가 필요한 정보를 투명하게 공유합니다.</p>
         </div>
       </div>
     </section>
 
     <section id="recruit" class="section recruit-section">
       <div class="section-heading">
-        <p class="eyebrow">Recruiting</p>
-        <h2>선수모집 · 입단문의</h2>
+        <div>
+          <p class="eyebrow">Recruiting</p>
+          <h2>선수모집 · 입단문의</h2>
+        </div>
+        <button class="heading-detail-action" type="button" @click="openDetail('recruit')">
+          자세히 보기 &gt;
+        </button>
       </div>
 
       <div class="recruit-layout">
@@ -207,44 +235,82 @@ const toggleTheme = () => {
 
     <section id="identity" class="section identity-section">
       <div class="section-heading">
-        <p class="eyebrow">Why Sejong BC</p>
-        <h2>선수의 성장 기회가 분명한 팀</h2>
+        <div>
+          <p class="eyebrow">Why Sejong BC</p>
+          <h2>세종BC가 선수에게 주는 환경</h2>
+        </div>
+        <button class="heading-detail-action" type="button" @click="openDetail('about')">
+          자세히 보기 &gt;
+        </button>
       </div>
 
       <div class="feature-grid">
         <article class="feature-card">
           <span class="feature-icon">市</span>
-          <h3>세종시 대표성</h3>
+          <h3>세종시 유일 고교야구팀</h3>
           <p>
-            세종특별자치시를 대표하는 고교야구팀으로서 지역의 이름을 걸고
-            전국 대회에 도전합니다.
+            세종특별자치시의 유일한 고교야구팀으로, 지역 안에서 야구를
+            이어가고 싶은 선수에게 현실적인 선택지가 됩니다.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon">全</span>
+          <h3>세종시 대표 전국체전 참가</h3>
+          <p>
+            매년 세종시 대표로 전국체전에 참가하며, 지역 대표라는 책임감과
+            전국 무대 경험을 함께 쌓습니다.
           </p>
         </article>
 
         <article class="feature-card">
           <span class="feature-icon">移</span>
-          <h3>이적 부담 완화</h3>
+          <h3>이적 패널티 부담 완화</h3>
           <p>
-            세종시 유일팀이라는 구조적 장점 덕분에 선수와 학부모가 진학 및
-            이적 선택지를 더 현실적으로 검토할 수 있습니다.
+            세종시 유일팀이라는 구조적 장점으로 진학과 이적 선택을 고민할 때
+            불필요한 제약을 줄일 수 있습니다.
           </p>
         </article>
 
         <article class="feature-card">
           <span class="feature-icon">試</span>
-          <h3>실전 중심 성장</h3>
+          <h3>열려 있는 경기 경험</h3>
           <p>
-            선수층과 운영 구조상 경기 경험을 얻을 기회가 열려 있어, 실전을
-            통해 성장하고 싶은 선수에게 적합합니다.
+            훈련 태도와 준비도에 따라 실전 기회를 만들어갈 수 있어, 경기 속에서
+            빠르게 성장하려는 선수에게 맞는 환경입니다.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon">管</span>
+          <h3>체계적인 컨디션 관리</h3>
+          <p>
+            강도 높은 훈련만 강조하지 않고, 회복과 컨디션을 함께 보며 지속해서
+            훈련할 수 있는 몸 상태를 관리합니다.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon">通</span>
+          <h3>권위보다 소통</h3>
+          <p>
+            젊은 지도진의 빠른 피드백과 소탈한 소통 방식으로 선수와 학부모가
+            팀 운영을 이해하기 쉽게 돕습니다.
           </p>
         </article>
       </div>
+
     </section>
 
     <section id="staff" class="section staff-section">
       <div class="section-heading">
-        <p class="eyebrow">Coaching Staff</p>
-        <h2>젊고 소통하는 지도진</h2>
+        <div>
+          <p class="eyebrow">Coaching Staff</p>
+          <h2>젊고 소통하는 지도진</h2>
+        </div>
+        <button class="heading-detail-action" type="button" @click="openDetail('coaches')">
+          자세히 보기 &gt;
+        </button>
       </div>
 
       <div class="staff-layout">
@@ -280,7 +346,7 @@ const toggleTheme = () => {
       </div>
 
       <div class="notice-strip">
-        <strong>지도자 이력 페이지 준비 영역</strong>
+        <strong>지도자 상세 안내</strong>
         <span>
           감독 및 코치의 선수 경력, 지도 경력, 자격 사항, 주요 성과를 별도
           프로필 페이지로 확장할 수 있습니다.
@@ -290,8 +356,13 @@ const toggleTheme = () => {
 
     <section id="parents" class="section parents-section">
       <div class="section-heading">
-        <p class="eyebrow">Parents Committee</p>
-        <h2>학부모 운영회 안내</h2>
+        <div>
+          <p class="eyebrow">Parents Committee</p>
+          <h2>학부모 운영회 안내</h2>
+        </div>
+        <button class="heading-detail-action" type="button" @click="openDetail('parents')">
+          자세히 보기 &gt;
+        </button>
       </div>
 
       <div class="info-columns">
@@ -317,6 +388,7 @@ const toggleTheme = () => {
           </p>
         </div>
       </div>
+
     </section>
 
     <section id="qa" class="section qa-section">
@@ -367,6 +439,16 @@ const toggleTheme = () => {
         </details>
       </div>
     </section>
+
+    <DetailOverlay v-if="activeDetail" :title="`${activeDetail} detail`" @close="closeDetail">
+      <AboutDetail v-if="activeDetail === 'about'" />
+      <CoachesDetail v-else-if="activeDetail === 'coaches'" />
+      <RecruitDetail v-else-if="activeDetail === 'recruit'" />
+      <ParentsDetail v-else-if="activeDetail === 'parents'" />
+    </DetailOverlay>
+    </template>
+
+    <NuxtPage v-else />
   </main>
 </template>
 
@@ -393,6 +475,10 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+button {
+  font: inherit;
 }
 
 .site-shell {
@@ -720,8 +806,16 @@ h1 {
 }
 
 .section-heading {
-  max-width: 760px;
+  display: flex;
+  max-width: none;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 22px;
   margin-bottom: 32px;
+}
+
+.section-heading > div {
+  max-width: 760px;
 }
 
 .section-heading h2 {
@@ -732,8 +826,433 @@ h1 {
   letter-spacing: 0;
 }
 
-.recruit-section {
+.heading-detail-action {
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 900;
+  padding: 8px 0;
+}
+
+.heading-detail-action:hover,
+.heading-detail-action:focus-visible {
+  color: var(--text-strong);
+}
+
+.section-more {
+  margin-top: 24px;
+}
+
+.detail-link,
+.inline-detail-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 16px;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.detail-link {
   background: var(--text-strong);
+  color: var(--accent);
+}
+
+.inline-detail-link {
+  flex: 0 0 auto;
+  background: #171717;
+  color: #f6be00;
+}
+
+.detail-drawer-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  overflow-y: auto;
+  background:
+    linear-gradient(135deg, var(--hero-gradient-a), transparent 38%),
+    var(--bg);
+}
+
+.detail-drawer {
+  min-height: 100%;
+  padding: clamp(24px, 5vw, 72px);
+  padding-bottom: calc(clamp(24px, 5vw, 72px) + env(safe-area-inset-bottom));
+}
+
+.detail-drawer-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: clamp(28px, 5vw, 64px);
+}
+
+.detail-drawer-header h2 {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: clamp(46px, 8vw, 92px);
+  line-height: 1.08;
+}
+
+.drawer-close {
+  position: sticky;
+  top: 18px;
+  display: inline-grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: var(--text-strong);
+  cursor: pointer;
+  opacity: 0.72;
+  padding: 0;
+}
+
+.overlay-close {
+  position: fixed;
+  top: clamp(16px, 3vw, 28px);
+  right: clamp(16px, 3vw, 28px);
+  z-index: 2;
+  border-radius: 999px;
+  background: var(--surface-glass);
+  box-shadow: 0 12px 32px var(--shadow);
+}
+
+.drawer-close:hover,
+.drawer-close:focus-visible {
+  opacity: 1;
+}
+
+.drawer-close svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 2.2;
+}
+
+.drawer-body-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(22px, 4vw, 44px);
+  align-items: start;
+}
+
+.drawer-photo-placeholder {
+  display: grid;
+  min-height: min(58vh, 560px);
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(246, 190, 0, 0.22), transparent 48%),
+    var(--surface-soft);
+  color: var(--muted);
+  text-align: center;
+  font-weight: 900;
+}
+
+.drawer-summary {
+  max-width: 780px;
+  margin: 20px 0 0;
+  color: var(--nav-muted);
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.drawer-content-list {
+  display: grid;
+  gap: 12px;
+}
+
+.drawer-content-list section {
+  padding: clamp(22px, 3vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-glass);
+}
+
+.drawer-content-list h3 {
+  margin: 0 0 8px;
+  color: var(--text-strong);
+  font-size: clamp(24px, 3vw, 34px);
+}
+
+.drawer-content-list p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.drawer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: clamp(28px, 5vw, 56px);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.drawer-actions a,
+.drawer-actions button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 16px;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.drawer-actions a {
+  background: var(--text-strong);
+  color: var(--accent);
+}
+
+.drawer-actions button {
+  background: var(--accent);
+  color: #171717;
+}
+
+.page-detail-content {
+  min-height: auto;
+}
+
+.detail-page {
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    linear-gradient(135deg, var(--hero-gradient-a), transparent 38%),
+    var(--bg);
+}
+
+.detail-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px max(72px, clamp(20px, 5vw, 72px)) 16px clamp(20px, 5vw, 72px);
+  border-bottom: 1px solid var(--line);
+  background: var(--topbar-bg);
+  backdrop-filter: blur(16px);
+}
+
+.detail-home {
+  color: var(--text-strong);
+  font-weight: 900;
+}
+
+.detail-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  color: var(--nav-muted);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.detail-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+  padding: clamp(56px, 8vw, 108px) clamp(20px, 5vw, 72px);
+}
+
+.detail-hero h1 {
+  font-size: clamp(46px, 8vw, 92px);
+}
+
+.detail-hero p {
+  max-width: 760px;
+  color: var(--nav-muted);
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  line-height: 1.65;
+}
+
+.photo-placeholder {
+  display: grid;
+  min-height: 340px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(246, 190, 0, 0.2), transparent 46%),
+    var(--surface-glass);
+  color: var(--muted);
+  text-align: center;
+  font-weight: 900;
+}
+
+.photo-placeholder.small {
+  min-height: 180px;
+}
+
+.photo-placeholder.portrait {
+  min-height: 260px;
+  aspect-ratio: 4 / 5;
+}
+
+.detail-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+  gap: 32px;
+  align-items: start;
+  padding: 0 clamp(20px, 5vw, 72px) clamp(72px, 9vw, 120px);
+}
+
+.content-main {
+  display: grid;
+  gap: 18px;
+}
+
+.content-block,
+.aside-card,
+.story-grid article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.content-block {
+  padding: clamp(24px, 4vw, 36px);
+}
+
+.content-block h2,
+.aside-card h2 {
+  margin: 0 0 14px;
+  color: var(--text-strong);
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.16;
+}
+
+.content-block h3 {
+  margin: 0 0 10px;
+  color: var(--text-strong);
+  font-size: 24px;
+}
+
+.content-block p,
+.aside-card p,
+.story-grid p {
+  color: var(--muted);
+  line-height: 1.76;
+}
+
+.detail-list {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 0;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.inline-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.inline-photo-grid .photo-placeholder:nth-child(3) {
+  grid-column: 1 / -1;
+}
+
+.profile-detail {
+  display: grid;
+  grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.step-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.step-list > div {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-soft);
+}
+
+.step-list span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--accent-strong);
+  font-weight: 900;
+}
+
+.step-list strong {
+  color: var(--text-strong);
+  line-height: 1.45;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.story-grid article {
+  padding: 18px;
+}
+
+.story-grid h3 {
+  margin-top: 16px;
+}
+
+.aside-card {
+  position: sticky;
+  top: 92px;
+  display: grid;
+  gap: 10px;
+  padding: 22px;
+}
+
+.aside-card a {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  border-radius: 8px;
+  color: var(--text-strong);
+  font-weight: 900;
+}
+
+.aside-card.accent {
+  background: var(--text-strong);
+}
+
+.aside-card.accent h2,
+.aside-card.accent a {
+  color: var(--accent);
+}
+
+.aside-card.accent p {
+  color: var(--dark-panel-muted);
+}
+
+.recruit-section {
+  background: var(--dark-panel);
   color: var(--accent);
 }
 
@@ -775,9 +1294,9 @@ h1 {
 
 .recruit-list > div {
   padding: 18px 20px;
-  border: 1px solid var(--line-strong);
+  border: 1px solid rgba(246, 190, 0, 0.3);
   border-radius: 8px;
-  background: var(--profile-bg);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .recruit-list span {
@@ -808,8 +1327,10 @@ h1 {
   min-height: 48px;
   align-items: center;
   justify-content: center;
+  border: 0;
   border-radius: 8px;
   padding: 0 18px;
+  cursor: pointer;
   font-weight: 900;
 }
 
@@ -819,7 +1340,8 @@ h1 {
 }
 
 .recruit-secondary {
-  border: 1px solid var(--line-strong);
+  border: 1px solid rgba(246, 190, 0, 0.34);
+  background: transparent;
   color: var(--dark-panel-text);
 }
 
@@ -830,7 +1352,7 @@ h1 {
 }
 
 .feature-card {
-  min-height: 250px;
+  min-height: 236px;
   padding: 26px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -981,11 +1503,48 @@ h1 {
   }
 
   .hero-section,
+  .detail-hero,
+  .detail-content,
   .recruit-layout,
   .feature-grid,
   .staff-layout,
   .info-columns {
     grid-template-columns: 1fr;
+  }
+
+  .detail-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .detail-drawer-header {
+    flex-direction: column-reverse;
+    margin-bottom: 24px;
+  }
+
+  .drawer-body-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .drawer-photo-placeholder {
+    min-height: 280px;
+  }
+
+  .profile-detail,
+  .step-list,
+  .story-grid,
+  .inline-photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aside-card {
+    position: static;
   }
 
   .hero-section {
@@ -1001,6 +1560,65 @@ h1 {
 @media (max-width: 560px) {
   .topbar {
     padding: 14px 64px 14px 18px;
+  }
+
+  .detail-topbar {
+    padding: 14px 64px 14px 18px;
+  }
+
+  .detail-drawer {
+    padding: 18px;
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
+  }
+
+  .detail-drawer-header {
+    gap: 12px;
+  }
+
+  .detail-drawer-header h2 {
+    font-size: clamp(34px, 13vw, 52px);
+  }
+
+  .drawer-summary {
+    margin-top: 14px;
+    font-size: 17px;
+  }
+
+  .drawer-close {
+    top: 8px;
+    width: 44px;
+    height: 44px;
+    align-self: flex-end;
+    border-radius: 999px;
+    background: var(--surface-glass);
+  }
+
+  .drawer-photo-placeholder {
+    min-height: 220px;
+    padding: 18px;
+  }
+
+  .drawer-content-list section {
+    padding: 18px;
+  }
+
+  .drawer-content-list h3 {
+    font-size: 22px;
+  }
+
+  .drawer-actions {
+    position: sticky;
+    bottom: 0;
+    margin-right: -18px;
+    margin-left: -18px;
+    padding: 12px 18px calc(12px + env(safe-area-inset-bottom));
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+  }
+
+  .drawer-actions a,
+  .drawer-actions button {
+    width: 100%;
   }
 
   .section,
