@@ -135,6 +135,18 @@ const closeDetail = () => {
             <circle cx="17.2" cy="6.8" r="1.1" />
           </svg>
         </a>
+        <a
+          class="location-action"
+          href="https://naver.me/FG7CBgyD"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="네이버 지도에서 훈련 장소 열기"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+        </a>
         <button
           class="theme-toggle"
           type="button"
@@ -259,10 +271,11 @@ const closeDetail = () => {
           </article>
 
           <article class="recruit-contact-card secondary">
-            <span>가벼운 관심 문의</span>
+            <span>관심 문의</span>
             <h3>팀 소식과 활동 분위기 확인</h3>
             <p>
               팀 분위기, 활동 사진, 간단한 관심 문의는 공식 인스타그램에서 확인할 수 있습니다.
+              궁금한 점은 DM으로 질문해 보세요.
             </p>
             <a
               href="https://www.instagram.com/sejongbc25?igsh=MXFjNjRwamswbHZx"
@@ -477,8 +490,8 @@ const closeDetail = () => {
           <summary>문의는 어디로 하면 되나요?</summary>
           <p>
             입단 상담, 훈련 참관, 이적 관련 문의는 010-6740-0480 (신진호 감독)으로
-            확인할 수 있습니다. 팀 소식과 가벼운 관심 문의는 공식 인스타그램 @sejongbc25를
-            이용해 주세요.
+            확인할 수 있습니다. 팀 소식과 관심 문의는 공식 인스타그램 @sejongbc25를
+            이용해 주세요. 궁금한 점은 DM으로 질문해 보세요.
           </p>
         </details>
       </div>
@@ -781,7 +794,8 @@ h1 {
 
 .primary-action,
 .phone-action,
-.instagram-action {
+.instagram-action,
+.location-action {
   display: inline-flex;
   min-height: 48px;
   align-items: center;
@@ -797,7 +811,8 @@ h1 {
 }
 
 .phone-action,
-.instagram-action {
+.instagram-action,
+.location-action {
   width: 40px;
   min-height: 40px;
   padding: 0;
@@ -813,13 +828,16 @@ h1 {
 .phone-action:hover,
 .phone-action:focus-visible,
 .instagram-action:hover,
-.instagram-action:focus-visible {
+.instagram-action:focus-visible,
+.location-action:hover,
+.location-action:focus-visible {
   opacity: 1;
   transform: scale(1.04);
 }
 
 .phone-action svg,
-.instagram-action svg {
+.instagram-action svg,
+.location-action svg {
   width: 25px;
   height: 25px;
   fill: none;
@@ -1844,7 +1862,8 @@ h1 {
 
   .primary-action,
   .phone-action,
-  .instagram-action {
+  .instagram-action,
+  .location-action {
     width: 34px;
     min-height: 34px;
   }
@@ -1856,6 +1875,7 @@ h1 {
 
   .phone-action svg,
   .instagram-action svg,
+  .location-action svg,
   .theme-toggle svg {
     width: 21px;
     height: 21px;
