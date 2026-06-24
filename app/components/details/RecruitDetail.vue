@@ -25,8 +25,8 @@
       <section>
         <h3>입단 문의 흐름</h3>
         <p>
-          인스타그램 DM 문의, 선수 정보 확인, 상담 및 훈련 참관, 입단 가능 여부 협의
-          순서로 안내합니다.
+          전화 또는 인스타그램 DM 문의, 선수 정보 확인, 상담 및 훈련 참관, 입단 가능
+          여부 협의 순서로 안내합니다.
         </p>
       </section>
       <section>
@@ -40,6 +40,9 @@
   </div>
 
   <div class="drawer-actions">
+    <a href="tel:01067400480">
+      전화 문의
+    </a>
     <a href="https://www.instagram.com/sejongbc25?igsh=MXFjNjRwamswbHZx" target="_blank" rel="noreferrer">
       인스타그램 DM 문의
     </a>

@@ -26,6 +26,25 @@ const showScrollTop = ref(false)
 const route = useRoute()
 type DetailKey = 'about' | 'coaches' | 'recruit' | 'parents'
 const activeDetail = ref<DetailKey | null>(null)
+const activeHeroCard = ref(0)
+const heroCards = [
+  {
+    number: '01',
+    title: '지역을 넘어 열린 기회',
+    body: '세종을 기반으로 하되, 더 많은 실전과 성장 환경을 찾는 선수에게 열려 있습니다.'
+  },
+  {
+    number: '02',
+    title: '성장을 위한 바른 기준',
+    body: '현재 기량만 보지 않고 태도, 반복, 기본기, 실전 적응력을 함께 봅니다.'
+  },
+  {
+    number: '03',
+    title: '함께 만들어가는 팀 문화',
+    body: '지도진, 선수, 학부모가 필요한 정보를 나누며 팀의 방향을 함께 만들어갑니다.'
+  }
+]
+let heroCardTimer: ReturnType<typeof window.setInterval> | undefined
 
 const updateScrollTopVisibility = () => {
   showScrollTop.value = window.scrollY > 520
@@ -49,6 +68,9 @@ onMounted(() => {
 
   updateScrollTopVisibility()
   window.addEventListener('scroll', updateScrollTopVisibility, { passive: true })
+  heroCardTimer = window.setInterval(() => {
+    activeHeroCard.value = (activeHeroCard.value + 1) % heroCards.length
+  }, 3600)
 })
 
 watch(theme, (nextTheme) => {
@@ -61,6 +83,9 @@ watch(activeDetail, (detail) => {
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', updateScrollTopVisibility)
+  if (heroCardTimer) {
+    window.clearInterval(heroCardTimer)
+  }
   document.body.style.overflow = ''
 })
 
@@ -148,7 +173,11 @@ const closeDetail = () => {
         </p>
 
         <div class="hero-actions" aria-label="바로가기">
-          <a class="primary-action" href="#recruit">입단 문의</a>
+          <a class="phone-action" href="tel:01067400480" aria-label="입단 문의 전화 010-6740-0480">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.78 19.78 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.78 19.78 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13 1 .36 1.98.7 2.91a2 2 0 0 1-.45 2.11L8.09 10a16 16 0 0 0 6 6l1.26-1.26a2 2 0 0 1 2.11-.45c.93.34 1.91.57 2.91.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+          </a>
           <a
             class="instagram-action"
             href="https://www.instagram.com/sejongbc25?igsh=MXFjNjRwamswbHZx"
@@ -166,20 +195,25 @@ const closeDetail = () => {
       </div>
 
       <div class="hero-board" aria-label="세종BC 핵심 정보">
-        <div>
-          <span>01</span>
-          <strong>지역 기반</strong>
-          <p>세종에서 훈련과 진학, 대회 준비를 함께 이어갈 수 있는 팀입니다.</p>
-        </div>
-        <div>
-          <span>02</span>
-          <strong>성장 중심</strong>
-          <p>선수의 현재 기량보다 태도, 반복, 실전 적응력을 함께 봅니다.</p>
-        </div>
-        <div>
-          <span>03</span>
-          <strong>소통하는 팀</strong>
-          <p>지도진, 선수, 학부모가 필요한 정보를 투명하게 공유합니다.</p>
+        <div class="hero-slide-card">
+          <Transition name="hero-card" mode="out-in">
+            <div :key="heroCards[activeHeroCard].number" class="hero-slide-content">
+              <span>{{ heroCards[activeHeroCard].number }}</span>
+              <strong>{{ heroCards[activeHeroCard].title }}</strong>
+              <p>{{ heroCards[activeHeroCard].body }}</p>
+            </div>
+          </Transition>
+
+          <div class="hero-card-dots" aria-label="핵심 정보 순서">
+            <button
+              v-for="(card, index) in heroCards"
+              :key="card.number"
+              type="button"
+              :aria-label="`${card.title} 보기`"
+              :aria-current="activeHeroCard === index"
+              @click="activeHeroCard = index"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -215,13 +249,19 @@ const closeDetail = () => {
           </div>
           <div>
             <span>문의</span>
-            <strong>공식 인스타그램 @sejongbc25 DM</strong>
+            <strong>010-6740-0480 또는 공식 인스타그램 @sejongbc25 DM</strong>
           </div>
         </div>
 
         <div class="recruit-actions" aria-label="입단 문의 바로가기">
           <a
             class="recruit-primary"
+            href="tel:01067400480"
+          >
+            전화 문의
+          </a>
+          <a
+            class="recruit-secondary"
             href="https://www.instagram.com/sejongbc25?igsh=MXFjNjRwamswbHZx"
             target="_blank"
             rel="noreferrer"
@@ -433,8 +473,8 @@ const closeDetail = () => {
         <details>
           <summary>문의는 어디로 하면 되나요?</summary>
           <p>
-            공식 인스타그램 @sejongbc25를 통해 입단, 훈련 참관, 운영회 관련
-            질문을 확인할 수 있습니다.
+            전화 010-6740-0480 또는 공식 인스타그램 @sejongbc25를 통해 입단,
+            훈련 참관, 운영회 관련 질문을 확인할 수 있습니다.
           </p>
         </details>
       </div>
@@ -733,6 +773,7 @@ h1 {
 }
 
 .primary-action,
+.phone-action,
 .instagram-action {
   display: inline-flex;
   min-height: 48px;
@@ -748,6 +789,7 @@ h1 {
   color: var(--accent);
 }
 
+.phone-action,
 .instagram-action {
   width: auto;
   padding: 0;
@@ -756,6 +798,7 @@ h1 {
   color: var(--text-strong);
 }
 
+.phone-action svg,
 .instagram-action svg {
   width: 30px;
   height: 30px;
@@ -771,12 +814,63 @@ h1 {
   gap: 14px;
 }
 
-.hero-board > div {
+.hero-slide-card {
+  display: flex;
+  min-height: 214px;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 24px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface-glass);
   box-shadow: 0 20px 50px var(--shadow);
+}
+
+.hero-slide-content {
+  min-height: 142px;
+}
+
+.hero-card-enter-active,
+.hero-card-leave-active {
+  transition:
+    opacity 260ms ease,
+    transform 260ms ease;
+}
+
+.hero-card-enter-from {
+  opacity: 0;
+  transform: translateX(18px);
+}
+
+.hero-card-leave-to {
+  opacity: 0;
+  transform: translateX(-18px);
+}
+
+.hero-card-dots {
+  display: flex;
+  min-height: auto;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.hero-card-dots button {
+  width: 28px;
+  height: 4px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--line-strong);
+  cursor: pointer;
+  padding: 0;
+}
+
+.hero-card-dots button[aria-current="true"] {
+  background: var(--accent);
 }
 
 .hero-board span {
@@ -1627,13 +1721,14 @@ h1 {
     padding-left: 18px;
   }
 
-  .hero-board > div,
+  .hero-slide-card,
   .feature-card,
   .profile-panel {
     padding: 22px;
   }
 
   .primary-action,
+  .phone-action,
   .instagram-action {
     width: auto;
   }
