@@ -34,10 +34,7 @@ onMounted(() => {
 
   if (savedTheme === 'light' || savedTheme === 'dark') {
     theme.value = savedTheme
-    return
-  }
-
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
     theme.value = 'dark'
   }
 
