@@ -4,7 +4,7 @@
       <p class="eyebrow">Coaching Staff</p>
       <h2>지도자 상세</h2>
       <p class="drawer-summary">
-        신진호 감독과 김선규 수석코치의 약력, 지도 강점, 현장 역할을 프로필 형태로
+        신진호 감독의 약력, 지도 강점, 현장 역할을 프로필 형태로
         소개합니다.
       </p>
     </div>
@@ -58,61 +58,6 @@
                 국내와 다른 야구 문화를 경험하며 쌓은 시야를 바탕으로, 일방적인 지시보다
                 선수와 눈높이를 맞추는 소통을 지향합니다. 훈련 태도와 준비 과정을 함께
                 보며 실전 경험이 다음 성장으로 이어지도록 피드백합니다.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <article class="coach-profile">
-      <div class="coach-photo-placeholder secondary">
-        <span>수석코치 김선규 사진</span>
-      </div>
-
-      <div class="coach-profile-content">
-        <p class="coach-role">수석코치</p>
-        <h3>김선규</h3>
-        <p class="coach-lead">
-          프로 불펜의 긴장감을 경험한 사이드암 투수 출신 수석코치
-        </p>
-
-        <div class="coach-section">
-          <h4>주요 약력</h4>
-          <ul class="coach-history">
-            <li>순천북초 · 이수중 · 효천고 출신</li>
-            <li>SK 와이번스 2005년 2차 4라운드 31순위 지명</li>
-            <li>SK 와이번스 · LG 트윈스 · NC 다이노스</li>
-            <li>KBO 우완 사이드암 투수</li>
-            <li>LG 트윈스 셋업맨·중간계투 경험</li>
-            <li>2011년 KBO 정규시즌 61경기 등판</li>
-            <li>서울아이티고등학교 BC 코치</li>
-          </ul>
-        </div>
-
-        <div class="coach-section">
-          <h4>수석코치로서의 강점</h4>
-          <div class="coach-strength-grid">
-            <div>
-              <strong>불펜 경험에서 나오는 실전 감각</strong>
-              <p>
-                경기 중반과 승부처를 맡았던 투수 경험을 바탕으로, 선수에게 실전에서
-                필요한 집중력과 상황 판단을 구체적으로 전달합니다.
-              </p>
-            </div>
-            <div>
-              <strong>사이드암 투수의 기술 이해</strong>
-              <p>
-                우완 사이드암 투수로 쌓은 경험을 바탕으로 투구 밸런스, 릴리스, 타자와의
-                승부 흐름을 세밀하게 짚어줄 수 있습니다.
-              </p>
-            </div>
-            <div>
-              <strong>반복과 회복을 함께 보는 훈련</strong>
-              <p>
-                선수 시절 많은 훈련량을 버텨내고 재활 과정을 거친 경험을 바탕으로,
-                반복 훈련의 필요성을 현실적으로 전달합니다. 동시에 오래 버티기 위해서는
-                회복과 컨디션 관리가 함께 가야 한다는 기준을 놓치지 않습니다.
               </p>
             </div>
           </div>

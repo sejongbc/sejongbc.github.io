@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" role="img" aria-labelledby="title desc">
+  <title id="title">SJ Strike Standalone Mark</title>
+  <desc id="desc">Standalone SJ logo type matching the strike full name system.</desc>
+  <text x="260" y="180" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="208" font-weight="900" font-style="italic" letter-spacing="-22" fill="#f6be00" stroke="#111111" stroke-width="26" paint-order="stroke">SJ</text>
+  <text x="260" y="180" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="208" font-weight="900" font-style="italic" letter-spacing="-22" fill="#f6be00" stroke="#ffffff" stroke-width="10" paint-order="stroke">SJ</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 240" role="img" aria-labelledby="title desc">
+  <title id="title">SJ Strike Full Type System</title>
+  <desc id="desc">Full name typography where SJ stands out as the primary logo mark.</desc>
+  <text x="188" y="158" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="172" font-weight="900" font-style="italic" letter-spacing="-18" fill="#f6be00" stroke="#111111" stroke-width="22" paint-order="stroke">SJ</text>
+  <text x="188" y="158" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="172" font-weight="900" font-style="italic" letter-spacing="-18" fill="#f6be00" stroke="#ffffff" stroke-width="8" paint-order="stroke">SJ</text>
+  <text x="646" y="104" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="74" font-weight="900" font-style="italic" letter-spacing="-3" fill="#111111" stroke="#ffffff" stroke-width="7" paint-order="stroke">Sejong</text>
+  <text x="648" y="168" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="50" font-weight="900" font-style="italic" letter-spacing="0" fill="#f6be00" stroke="#111111" stroke-width="14" paint-order="stroke">BaseBall Club</text>
+  <text x="648" y="168" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="50" font-weight="900" font-style="italic" letter-spacing="0" fill="#f6be00" stroke="#ffffff" stroke-width="5" paint-order="stroke">BaseBall Club</text>
+</svg>

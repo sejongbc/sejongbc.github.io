@@ -2,12 +2,20 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  ssr: false,
+  ssr: true,
   app: {
     baseURL: '/',
-    buildAssetsDir: 'assets'
+    buildAssetsDir: 'assets',
+    head: {
+      htmlAttrs: {
+        lang: 'ko-KR'
+      }
+    }
   },
   nitro: {
-    preset: 'github-pages'
+    preset: 'github-pages',
+    prerender: {
+      routes: ['/']
+    }
   }
 })

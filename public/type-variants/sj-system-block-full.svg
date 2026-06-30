@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 240" role="img" aria-labelledby="title desc">
+  <title id="title">SJ Block Full Type System</title>
+  <desc id="desc">Full name typography where a block SJ works as the primary team mark.</desc>
+  <text x="198" y="162" text-anchor="middle" font-family="Impact, Arial Black, system-ui, sans-serif" font-size="180" font-weight="900" letter-spacing="-10" fill="#111111" stroke="#f6be00" stroke-width="22" paint-order="stroke">SJ</text>
+  <text x="198" y="162" text-anchor="middle" font-family="Impact, Arial Black, system-ui, sans-serif" font-size="180" font-weight="900" letter-spacing="-10" fill="#111111" stroke="#ffffff" stroke-width="8" paint-order="stroke">SJ</text>
+  <text x="658" y="112" text-anchor="middle" font-family="Impact, Arial Black, system-ui, sans-serif" font-size="76" font-weight="900" letter-spacing="-1" fill="#f6be00" stroke="#111111" stroke-width="15" paint-order="stroke">Sejong</text>
+  <text x="658" y="112" text-anchor="middle" font-family="Impact, Arial Black, system-ui, sans-serif" font-size="76" font-weight="900" letter-spacing="-1" fill="#f6be00" stroke="#ffffff" stroke-width="5" paint-order="stroke">Sejong</text>
+  <text x="658" y="171" text-anchor="middle" font-family="Impact, Arial Black, system-ui, sans-serif" font-size="44" font-weight="900" letter-spacing="1" fill="#111111" stroke="#ffffff" stroke-width="5" paint-order="stroke">BaseBall Club</text>
+</svg>

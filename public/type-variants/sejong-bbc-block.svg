@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 190" role="img" aria-labelledby="title desc">
+  <title id="title">Sejong BaseBall Club Block Type</title>
+  <desc id="desc">High contrast block lettering readable on light and dark backgrounds.</desc>
+  <text x="520" y="118" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="72" font-weight="900" letter-spacing="-1" fill="#f6be00" stroke="#111111" stroke-width="18" paint-order="stroke">Sejong BaseBall Club</text>
+  <text x="520" y="118" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="72" font-weight="900" letter-spacing="-1" fill="#f6be00" stroke="#ffffff" stroke-width="8" paint-order="stroke">Sejong BaseBall Club</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 230" role="img" aria-labelledby="title desc">
+  <title id="title">SJ Active Stack Type</title>
+  <desc id="desc">Active italic text arrangement with high contrast SJ emphasis.</desc>
+  <text x="168" y="154" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="150" font-weight="900" font-style="italic" letter-spacing="-14" fill="#f6be00" stroke="#111111" stroke-width="18" paint-order="stroke">SJ</text>
+  <text x="168" y="154" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="150" font-weight="900" font-style="italic" letter-spacing="-14" fill="#f6be00" stroke="#ffffff" stroke-width="7" paint-order="stroke">SJ</text>
+  <text x="606" y="108" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="66" font-weight="900" font-style="italic" letter-spacing="-2" fill="#111111" stroke="#ffffff" stroke-width="7" paint-order="stroke">Sejong</text>
+  <text x="608" y="168" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="51" font-weight="900" font-style="italic" letter-spacing="-1" fill="#f6be00" stroke="#111111" stroke-width="13" paint-order="stroke">BaseBall Club</text>
+  <text x="608" y="168" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="51" font-weight="900" font-style="italic" letter-spacing="-1" fill="#f6be00" stroke="#ffffff" stroke-width="5" paint-order="stroke">BaseBall Club</text>
+</svg>

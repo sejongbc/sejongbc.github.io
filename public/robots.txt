@@ -1,2 +1,4 @@
 User-Agent: *
 Disallow:
+
+Sitemap: https://sejongbc.github.io/sitemap.xml

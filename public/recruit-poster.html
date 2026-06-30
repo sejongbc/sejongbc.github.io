@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>세종BC 선수모집 공고</title>
+    <meta
+      name="description"
+      content="세종BC 1~2학년 이적 선수, 현재 중3 신입생 모집. 포수 포지션 장학생 문의."
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --black: #020202;
+        --white: #ffffff;
+        --yellow: #ffc400;
+        --red: #ff3b30;
+        --line: rgba(255, 255, 255, 0.28);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: var(--black);
+        color: var(--white);
+        font-family:
+          "Pretendard",
+          "Noto Sans KR",
+          "Apple SD Gothic Neo",
+          system-ui,
+          sans-serif;
+      }
+
+      .poster {
+        position: relative;
+        isolation: isolate;
+        width: min(100vw, 860px);
+        min-height: 100vh;
+        overflow: hidden;
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.8) 52%, rgba(0, 0, 0, 0.5) 100%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.96)),
+          url("recruit-assets/sejong-mark-bg.png") right 58px top 42px / min(38vw, 320px) auto no-repeat,
+          #000;
+        padding: 56px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .poster::before {
+        content: "";
+        position: absolute;
+        inset: 18px;
+        z-index: -1;
+        border: 1px solid var(--line);
+        pointer-events: none;
+      }
+
+      .poster::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0 0;
+        z-index: -1;
+        height: 42%;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 0));
+        pointer-events: none;
+      }
+
+      .eyebrow {
+        margin: 0 0 16px;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 1.1rem;
+        font-weight: 900;
+        letter-spacing: 0;
+      }
+
+      .brand-title {
+        position: relative;
+        z-index: 0;
+        align-self: end;
+        justify-self: end;
+        margin: 0 72px 22px 0;
+        color: var(--yellow);
+        font-family:
+          "Pretendard",
+          "Apple SD Gothic Neo",
+          "Noto Sans KR",
+          system-ui,
+          sans-serif;
+        font-size: 7.8rem;
+        line-height: 0.95;
+        letter-spacing: 0;
+        font-weight: 1000;
+        text-align: right;
+        white-space: nowrap;
+      }
+
+      .brand-title-fill {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        color: var(--yellow);
+        background: linear-gradient(180deg, #ffffff 0%, #ffe58a 38%, var(--yellow) 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .headline-lockup {
+        display: grid;
+        grid-template-columns: minmax(0, auto) minmax(150px, 1fr);
+        align-items: end;
+        gap: 18px;
+        max-width: 720px;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 690px;
+        font-size: 5.8rem;
+        line-height: 0.98;
+        letter-spacing: 0;
+        font-weight: 1000;
+        text-shadow: 0 5px 0 rgba(0, 0, 0, 0.42);
+      }
+
+      h1 span {
+        display: block;
+        color: var(--yellow);
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+      }
+
+      .targets,
+      .notes {
+        display: grid;
+        max-width: 660px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .targets {
+        gap: 12px;
+        margin: 28px 0 0;
+      }
+
+      .targets li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-height: 56px;
+        padding: 13px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: transparent;
+        font-size: 2.25rem;
+        font-weight: 950;
+        line-height: 1.08;
+      }
+
+      .targets strong {
+        color: var(--yellow);
+      }
+
+      .badge {
+        flex: 0 0 auto;
+        display: grid;
+        place-items: center;
+        width: 54px;
+        aspect-ratio: 1;
+        border-radius: 999px;
+        background: var(--yellow);
+        color: #000;
+        font-size: 1.75rem;
+        font-weight: 1000;
+      }
+
+      .highlight {
+        width: fit-content;
+        max-width: 100%;
+        margin: 0;
+        padding: 16px 22px 18px;
+        background: var(--yellow);
+        color: #000;
+        font-size: 3.35rem;
+        line-height: 0.95;
+        font-weight: 1000;
+        box-shadow: 10px 10px 0 rgba(255, 255, 255, 0.18);
+      }
+
+      .highlight small {
+        display: block;
+        margin-top: 8px;
+        font-size: 1.25rem;
+        line-height: 1.2;
+        font-weight: 900;
+      }
+
+      .footer {
+        display: grid;
+        gap: 14px;
+        max-width: 760px;
+      }
+
+      .notes {
+        gap: 7px;
+        margin: 0;
+      }
+
+      .staff {
+        display: grid;
+        gap: 6px;
+        max-width: 720px;
+        padding: 10px 12px;
+        border: 1px solid rgba(255, 196, 0, 0.48);
+        background: rgba(0, 0, 0, 0.72);
+      }
+
+      .staff-title {
+        margin: 0;
+        color: var(--yellow);
+        font-size: 1rem;
+        line-height: 1.1;
+        font-weight: 1000;
+      }
+
+      .staff-lines {
+        display: grid;
+        gap: 4px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .staff-lines li {
+        color: rgba(255, 255, 255, 0.94);
+        font-size: 0.96rem;
+        line-height: 1.2;
+        font-weight: 800;
+      }
+
+      .staff-lines strong {
+        color: var(--white);
+        font-weight: 1000;
+      }
+
+      .notes li {
+        width: fit-content;
+        max-width: 100%;
+        padding: 7px 11px;
+        border-left: 4px solid var(--yellow);
+        background: rgba(0, 0, 0, 0.72);
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 1.12rem;
+        line-height: 1.18;
+        font-weight: 850;
+      }
+
+      .notes strong {
+        color: var(--yellow);
+      }
+
+      .team {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 1.62rem;
+        font-weight: 850;
+      }
+
+      .team strong {
+        color: var(--red);
+        font-weight: 1000;
+      }
+
+      .team .team-name {
+        color: var(--yellow);
+        display: inline-block;
+        font-size: 1.16em;
+        font-weight: 1000;
+        line-height: 0.95;
+        text-shadow:
+          1px 0 #000,
+          -1px 0 #000,
+          0 1px #000,
+          0 -1px #000,
+          2px 2px 0 rgba(0, 0, 0, 0.72);
+      }
+
+      .contact {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px 16px;
+        margin: 0;
+        padding-top: 18px;
+        border-top: 3px solid var(--yellow);
+        font-size: 2.2rem;
+        line-height: 1.08;
+        font-weight: 1000;
+      }
+
+      .contact span {
+        color: var(--yellow);
+      }
+
+      .contact a {
+        color: var(--white);
+        text-decoration: none;
+      }
+
+      .contact small {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 0.72em;
+        font-weight: 700;
+      }
+
+      @media (max-width: 620px) {
+        .poster {
+          width: 100vw;
+          min-height: 100svh;
+          background:
+            linear-gradient(90deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.82) 64%, rgba(0, 0, 0, 0.58) 100%),
+            linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.98)),
+            url("recruit-assets/sejong-mark-bg.png") right 6px top 58px / 230px auto no-repeat,
+            #000;
+          padding: 26px 24px;
+        }
+
+        .poster::before {
+          inset: 12px;
+        }
+
+        .targets li {
+          align-items: flex-start;
+        }
+
+        .eyebrow {
+          margin-bottom: 10px;
+          font-size: 0.82rem;
+        }
+
+        .brand-title {
+          margin: 0 26px 12px 0;
+          font-size: 3.8rem;
+        }
+
+        .headline-lockup {
+          grid-template-columns: minmax(0, auto) minmax(94px, 1fr);
+          gap: 10px;
+        }
+
+        h1 {
+          font-size: 3.15rem;
+        }
+
+        .targets {
+          gap: 10px;
+          margin-top: 16px;
+        }
+
+        .targets li {
+          min-height: 48px;
+          padding: 11px 13px;
+          font-size: 1.35rem;
+        }
+
+        .badge {
+          width: 38px;
+          font-size: 1.15rem;
+        }
+
+        .highlight {
+          box-shadow: 7px 7px 0 rgba(255, 255, 255, 0.18);
+          padding: 13px 16px 15px;
+          font-size: 1.9rem;
+        }
+
+        .highlight small {
+          font-size: 0.95rem;
+        }
+
+        .footer {
+          gap: 5px;
+        }
+
+        .staff {
+          gap: 4px;
+          padding: 8px 10px;
+        }
+
+        .staff-title {
+          font-size: 0.86rem;
+        }
+
+        .staff-lines li {
+          font-size: 0.78rem;
+        }
+
+        .notes {
+          gap: 5px;
+        }
+
+        .notes li {
+          padding: 6px 9px;
+          font-size: 0.88rem;
+        }
+
+        .team {
+          font-size: 1.18rem;
+        }
+
+        .contact {
+          padding-top: 12px;
+          font-size: 1.25rem;
+        }
+      }
+
+      @media (max-width: 420px) {
+        h1 {
+          font-size: 2.85rem;
+        }
+      }
+
+      @media (max-height: 760px) and (min-width: 621px) {
+        .poster {
+          padding: 24px 48px;
+          gap: 12px;
+        }
+
+        .poster::before {
+          inset: 14px;
+        }
+
+        .eyebrow {
+          margin-bottom: 8px;
+          font-size: 0.9rem;
+        }
+
+        .brand-title {
+          margin: 0 56px 16px 0;
+          font-size: 4.8rem;
+        }
+
+        .headline-lockup {
+          grid-template-columns: minmax(0, auto) minmax(120px, 1fr);
+          gap: 14px;
+        }
+
+        h1 {
+          font-size: 3.45rem;
+        }
+
+        .targets {
+          gap: 8px;
+          margin-top: 10px;
+        }
+
+        .targets li {
+          min-height: 42px;
+          padding: 8px 13px;
+          font-size: 1.58rem;
+        }
+
+        .badge {
+          width: 38px;
+          font-size: 1.18rem;
+        }
+
+        .footer {
+          gap: 4px;
+        }
+
+        .highlight {
+          padding: 10px 15px 12px;
+          font-size: 2.25rem;
+          box-shadow: 6px 6px 0 rgba(255, 255, 255, 0.18);
+        }
+
+        .highlight small {
+          margin-top: 5px;
+          font-size: 0.95rem;
+        }
+
+        .notes {
+          gap: 4px;
+        }
+
+        .staff {
+          gap: 3px;
+          padding: 6px 9px;
+        }
+
+        .staff-title {
+          font-size: 0.8rem;
+        }
+
+        .staff-lines li {
+          font-size: 0.72rem;
+          line-height: 1.15;
+        }
+
+        .notes li {
+          padding: 4px 8px;
+          font-size: 0.86rem;
+        }
+
+        .team {
+          font-size: 1.28rem;
+        }
+
+        .contact {
+          padding-top: 8px;
+          font-size: 1.48rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="poster" aria-label="세종BC 선수모집 공고">
+      <section>
+        <p class="eyebrow">SEJONG BASEBALL CLUB</p>
+        <div class="headline-lockup">
+          <h1>
+            선수
+            <span>모집</span>
+          </h1>
+          <p class="brand-title">
+            <span class="brand-title-fill">세종BC</span>
+          </p>
+        </div>
+
+        <ul class="targets" aria-label="모집 대상">
+          <li>
+            <span class="badge">1</span>
+            <span><strong>1~2학년</strong> 이적 선수</span>
+          </li>
+          <li>
+            <span class="badge">2</span>
+            <span><strong>현재 중3</strong> 신입생 모집</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="footer">
+        <p class="highlight">
+          포지션 장학생
+          <small>포수 포지션 우선 상담</small>
+        </p>
+
+        <section class="staff" aria-label="코칭스태프 소개">
+          <p class="staff-title">프로 경험을 갖춘 코칭스태프</p>
+          <ul class="staff-lines">
+            <li><strong>감독 신진호</strong> 캔자스시티 로열스 · NC 다이노스 지명 · KBO 포수/투수 전환 경험</li>
+          </ul>
+        </section>
+
+        <ul class="notes" aria-label="참고사항">
+          <li><strong>훈련장</strong> 세종 금강야구장 · 세종 부강야구장 · 조치원 코리아베이스볼파크</li>
+          <li><strong>세종시 대표팀</strong> 전국체전 출전</li>
+          <li><strong>시설</strong> 120평 실내 연습장</li>
+          <li><strong>전학</strong> 6개월 전학패널티 없음</li>
+          <li><strong>대회</strong> 주말리그 및 전국대회 참가</li>
+        </ul>
+
+        <p class="team">
+          <strong>출전 기회</strong>가 고민이라면,
+          <span class="team-name">세종BC</span>에서 <strong>새로운 가능성</strong>을 만들어 보세요.
+        </p>
+
+        <p class="contact">
+          <span>상담문의</span>
+          <a href="tel:01067400480">010-6740-0480 <small>(감독 신진호)</small></a>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

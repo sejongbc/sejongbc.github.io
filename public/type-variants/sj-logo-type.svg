@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 230" role="img" aria-labelledby="title desc">
+  <title id="title">SJ Logo Type</title>
+  <desc id="desc">Aggressive logo-style typography with layered high contrast outlines.</desc>
+  <text x="312" y="156" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="154" font-weight="900" font-style="italic" letter-spacing="-15" fill="#ffffff" stroke="#111111" stroke-width="22" paint-order="stroke">SJ</text>
+  <text x="312" y="156" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="154" font-weight="900" font-style="italic" letter-spacing="-15" fill="#ffffff" stroke="#f6be00" stroke-width="10" paint-order="stroke">SJ</text>
+  <text x="704" y="110" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="64" font-weight="900" font-style="italic" letter-spacing="-1" fill="#f6be00" stroke="#111111" stroke-width="15" paint-order="stroke">Sejong</text>
+  <text x="704" y="110" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="64" font-weight="900" font-style="italic" letter-spacing="-1" fill="#f6be00" stroke="#ffffff" stroke-width="5" paint-order="stroke">Sejong</text>
+  <text x="704" y="165" text-anchor="middle" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="43" font-weight="900" font-style="italic" letter-spacing="0" fill="#111111" stroke="#ffffff" stroke-width="5" paint-order="stroke">BaseBall Club</text>
+</svg>

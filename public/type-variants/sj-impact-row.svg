@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 230" role="img" aria-labelledby="title desc">
+  <title id="title">SJ Impact Row Type</title>
+  <desc id="desc">Horizontal high-impact typography with layered contrast for all backgrounds.</desc>
+  <text x="184" y="150" text-anchor="middle" font-family="Impact, Arial Black, system-ui, sans-serif" font-size="150" font-weight="900" letter-spacing="-8" fill="#111111" stroke="#f6be00" stroke-width="16" paint-order="stroke">SJ</text>
+  <text x="184" y="150" text-anchor="middle" font-family="Impact, Arial Black, system-ui, sans-serif" font-size="150" font-weight="900" letter-spacing="-8" fill="#111111" stroke="#ffffff" stroke-width="6" paint-order="stroke">SJ</text>
+  <text x="632" y="122" text-anchor="middle" font-family="Impact, Arial Black, system-ui, sans-serif" font-size="72" font-weight="900" letter-spacing="-1" fill="#f6be00" stroke="#111111" stroke-width="15" paint-order="stroke">Sejong</text>
+  <text x="632" y="122" text-anchor="middle" font-family="Impact, Arial Black, system-ui, sans-serif" font-size="72" font-weight="900" letter-spacing="-1" fill="#f6be00" stroke="#ffffff" stroke-width="5" paint-order="stroke">Sejong</text>
+  <text x="660" y="170" text-anchor="middle" font-family="Impact, Arial Black, system-ui, sans-serif" font-size="41" font-weight="900" letter-spacing="1" fill="#111111" stroke="#ffffff" stroke-width="5" paint-order="stroke">BaseBall Club</text>
+</svg>

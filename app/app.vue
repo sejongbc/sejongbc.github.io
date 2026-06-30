@@ -5,9 +5,97 @@ import CoachesDetail from './components/details/CoachesDetail.vue'
 import ParentsDetail from './components/details/ParentsDetail.vue'
 import RecruitDetail from './components/details/RecruitDetail.vue'
 
+const siteUrl = 'https://sejongbc.github.io'
+const siteTitle = '세종BC | 세종시 고교야구팀 선수모집'
+const siteDescription =
+  '세종BC는 세종시를 기반으로 주말리그, 전국대회, 전국체전 출전을 준비하는 고등부 야구팀입니다. 중3 신입생과 고등부 선수 입단 상담, 훈련 참관, 이적 문의를 안내합니다.'
+const siteKeywords = [
+  '세종BC',
+  '세종 야구',
+  '세종시 야구팀',
+  '고교야구',
+  '고등부 야구팀',
+  '야구 선수모집',
+  '중3 야구 모집',
+  '고등학교 야구부',
+  '세종 베이스볼클럽',
+  '전국체전 야구',
+  '주말리그 야구'
+]
+
 useHead({
-  title: '세종BC',
+  title: siteTitle,
+  meta: [
+    {
+      name: 'description',
+      content: siteDescription
+    },
+    {
+      name: 'keywords',
+      content: siteKeywords.join(', ')
+    },
+    {
+      name: 'robots',
+      content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+    },
+    {
+      name: 'author',
+      content: '세종BC'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      property: 'og:locale',
+      content: 'ko_KR'
+    },
+    {
+      property: 'og:site_name',
+      content: '세종BC'
+    },
+    {
+      property: 'og:title',
+      content: siteTitle
+    },
+    {
+      property: 'og:description',
+      content: siteDescription
+    },
+    {
+      property: 'og:url',
+      content: siteUrl
+    },
+    {
+      property: 'og:image',
+      content: `${siteUrl}/poster.png`
+    },
+    {
+      property: 'og:image:alt',
+      content: '세종BC 선수모집 안내 포스터'
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      name: 'twitter:title',
+      content: siteTitle
+    },
+    {
+      name: 'twitter:description',
+      content: siteDescription
+    },
+    {
+      name: 'twitter:image',
+      content: `${siteUrl}/poster.png`
+    }
+  ],
   link: [
+    {
+      rel: 'canonical',
+      href: siteUrl
+    },
     {
       rel: 'icon',
       type: 'image/svg+xml',
@@ -16,6 +104,44 @@ useHead({
     {
       rel: 'apple-touch-icon',
       href: '/sejongbc-logo.svg'
+    }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'SportsTeam',
+        name: '세종BC',
+        alternateName: ['Sejong BC', 'Sejong Baseball Club', '세종 베이스볼클럽'],
+        sport: 'Baseball',
+        url: siteUrl,
+        logo: `${siteUrl}/sejongbc-logo.svg`,
+        image: `${siteUrl}/poster.png`,
+        description: siteDescription,
+        areaServed: {
+          '@type': 'AdministrativeArea',
+          name: '세종특별자치시'
+        },
+        contactPoint: {
+          '@type': 'ContactPoint',
+          telephone: '+82-10-6740-0480',
+          contactType: '입단 상담',
+          availableLanguage: ['ko']
+        },
+        sameAs: ['https://www.instagram.com/sejongbc25']
+      })
+    },
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: '세종BC',
+        url: siteUrl,
+        inLanguage: 'ko-KR',
+        description: siteDescription
+      })
     }
   ]
 })
@@ -385,20 +511,6 @@ const closeDetail = () => {
           </ul>
         </article>
 
-        <article class="profile-panel accent">
-          <p class="role">수석코치 김선규</p>
-          <h3>체계적이고 강도 있는 훈련 설계</h3>
-          <p>
-            선수 시절부터 성실하고 체계적인 훈련을 이어온 지도자로, 기본기와
-            반복 훈련의 중요성을 강조합니다. 강도 높은 훈련 속에서도 컨디션을
-            관리하며 지속 가능한 성장을 지도합니다.
-          </p>
-          <ul>
-            <li>기본기 중심의 꾸준하고 밀도 높은 훈련</li>
-            <li>훈련량과 회복을 함께 보는 컨디션 관리</li>
-            <li>선수별 약점 보완을 위한 반복 루틴 설계</li>
-          </ul>
-        </article>
       </div>
     </section>
 

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" role="img" aria-labelledby="title desc">
+  <title id="title">SJ Block Standalone Mark</title>
+  <desc id="desc">Standalone SJ logo type matching the block full name system.</desc>
+  <text x="260" y="186" text-anchor="middle" font-family="Impact, Arial Black, system-ui, sans-serif" font-size="216" font-weight="900" letter-spacing="-12" fill="#111111" stroke="#f6be00" stroke-width="28" paint-order="stroke">SJ</text>
+  <text x="260" y="186" text-anchor="middle" font-family="Impact, Arial Black, system-ui, sans-serif" font-size="216" font-weight="900" letter-spacing="-12" fill="#111111" stroke="#ffffff" stroke-width="10" paint-order="stroke">SJ</text>
+</svg>
