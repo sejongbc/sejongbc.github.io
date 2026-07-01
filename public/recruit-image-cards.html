@@ -769,6 +769,10 @@
         width: 620px;
       }
 
+      .card-recommend .photo-bg {
+        opacity: 0.3;
+      }
+
       .card-team .card-inner {
         grid-template-columns: 520px 1fr;
         grid-template-rows: auto auto auto 1fr auto;
@@ -1101,7 +1105,16 @@
       }
 
       .card-recommend .list li {
+        background: rgba(0, 0, 0, 0.3);
         font-size: 36px;
+      }
+
+      .card-recommend h2 {
+        line-height: 1.08;
+      }
+
+      .card-recommend h2 span {
+        display: block;
       }
 
       .card-recommend .contact {
@@ -1120,8 +1133,21 @@
         font-weight: 950;
       }
 
+      .card-recommend .contact span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
       .card-recommend .contact strong {
-        color: #fff;
+        color: var(--red);
+        font-size: 38px;
+      }
+
+      .card-recommend .contact .contact-handle,
+      .card-recommend .contact .contact-url {
+        color: var(--yellow);
+        font-size: 38px;
       }
 
       .contact-main {
@@ -1149,8 +1175,23 @@
 
       .card-recommend .mascot {
         right: -18px;
-        bottom: -72px;
-        width: 520px;
+        bottom: 123px;
+        width: 620px;
+      }
+
+      .card-recommend .mascot-callout {
+        position: absolute;
+        right: 430px;
+        bottom: 930px;
+        z-index: 4;
+        color: var(--red);
+        font-size: 52px;
+        line-height: 1;
+        font-weight: 1000;
+        text-shadow:
+          0 4px 0 #000,
+          0 0 24px rgba(0, 0, 0, 0.9);
+        transform: rotate(-8deg);
       }
 
       @media print {
@@ -1406,7 +1447,6 @@
       </section>
 
       <section id="card-07" class="capture-card card-team" aria-label="팀 소개 카드">
-        <img class="photo-bg" src="imgs/team/20260211_001.jpeg" alt="" />
         <img class="watermark" src="imgs/logo/SejongBC_logo_white_star_gray_circle_transparent.png" alt="" />
         <img class="mascot" src="imgs/mascot/002_batting-transparent.png" alt="" />
         <div class="card-inner">
@@ -1442,8 +1482,10 @@
       </section>
 
       <section id="card-08" class="capture-card card-recommend" aria-label="추천 선수 유형 카드">
+        <img class="photo-bg" src="imgs/team/20260211_002.png" alt="" />
         <img class="watermark" src="imgs/logo/SejongBC_logo_white_star_warm_darkgray_circle_transparent.png" alt="" />
-        <img class="mascot" src="imgs/mascot/001_normal-transparent.png" alt="" />
+        <img class="mascot" src="imgs/mascot-codex/sejong-bc-mascot-panther-uniform-transparent.png" alt="" />
+        <strong class="mascot-callout">늦지 않았습니다!</strong>
         <div class="card-inner">
           <div class="brand-row">
             <div class="brand">
@@ -1453,7 +1495,10 @@
             <span class="card-number">08</span>
           </div>
           <p class="eyebrow">이런 선수에게 추천합니다</p>
-          <h2>세종 BC에서 새로운 가능성을 상담해 보시기 바랍니다.</h2>
+          <h2>
+            <span>세종BC에서 함께 뛰며</span>
+            <span>더 큰 성장의 기회를 만나보세요.</span>
+          </h2>
           <ul class="list">
             <li>성장 의지가 강하고 훈련 태도와 기본기를 성실히 쌓아갈 선수</li>
             <li>출전 기회를 넓히고 실전에서 성장하고 싶은 선수</li>
@@ -1463,10 +1508,9 @@
             <li>이적 패널티 없이 빠르게 투입되어 더 많은 경기 경험으로 성장하고 싶은 선수</li>
           </ul>
           <div class="contact">
-            <span>상담 문의 · 신진호 감독</span>
-            <strong>010-6740-0480</strong>
-            <span>Instagram · https://www.instagram.com/sejongbc25</span>
-            <span>Homepage · https://sejongbc.github.io</span>
+            <span>상담 문의 · 신진호 감독 · <strong>010-6740-0480</strong></span>
+            <span>Instagram · <b class="contact-handle">@sejongbc25</b></span>
+            <span>Homepage · <b class="contact-url">https://sejongbc.github.io</b></span>
           </div>
         </div>
       </section>
