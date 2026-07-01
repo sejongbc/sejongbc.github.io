@@ -180,7 +180,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 24px;
-        min-height: 72px;
+        min-height: 148px;
       }
 
       .brand {
@@ -193,8 +193,8 @@
       }
 
       .brand img {
-        width: 74px;
-        height: 74px;
+        width: 148px;
+        height: 148px;
         object-fit: contain;
       }
 
@@ -354,13 +354,14 @@
       }
 
       .contact strong {
-        color: var(--yellow);
+        color: var(--red);
         font-size: 52px;
         line-height: 1;
         font-weight: 1000;
       }
 
       .watermark {
+        display: none;
         position: absolute;
         right: -150px;
         bottom: -260px;
@@ -468,15 +469,36 @@
         gap: 24px;
       }
 
+      .card-hero .hero-photo {
+        opacity: 0.52;
+      }
+
+      .card-hero .hero-kicker,
+      .card-hero .hero-team-line {
+        transform: rotate(-4deg);
+        transform-origin: left center;
+      }
+
+      .card-hero .hero-kicker {
+        margin-bottom: 34px;
+        font-size: 46px;
+      }
+
+      .card-hero .hero-team-line {
+        margin-bottom: 28px;
+        font-size: 66px;
+      }
+
       .card-hero h1 span {
         display: block;
         color: var(--yellow);
       }
 
-      .card-hero .mascot {
-        right: 28px;
-        bottom: -24px;
-        width: 560px;
+      .card-hero .hero-player {
+        right: -8px;
+        bottom: -22px;
+        width: 780px;
+        opacity: 0.7;
       }
 
       .card-hero .badge-row {
@@ -485,6 +507,10 @@
 
       .card-hero .contact {
         width: 1110px;
+      }
+
+      .card-hero .contact span {
+        font-size: 38px;
       }
 
       .card-target .card-inner,
@@ -496,10 +522,51 @@
         gap: 24px;
       }
 
+      .card-target .card-inner {
+        align-content: start;
+        grid-template-rows: auto auto auto auto auto;
+      }
+
       .card-target .mascot {
         right: -8px;
-        bottom: -78px;
-        width: 520px;
+        bottom: 300px;
+        width: 590px;
+        opacity: 0.9;
+      }
+
+      .card-target h2 {
+        font-size: 96px;
+      }
+
+      .card-target .positions {
+        align-self: start;
+        max-width: 1440px;
+      }
+
+      .card-target .position {
+        height: 248px;
+        min-height: 248px;
+        padding: 24px;
+      }
+
+      .card-target .position span {
+        font-size: 40px;
+      }
+
+      .card-target .position strong {
+        font-size: 86px;
+      }
+
+      .target-subtitle {
+        margin: 0;
+        color: var(--yellow);
+        font-size: 82px;
+        line-height: 1;
+        font-weight: 1000;
+      }
+
+      .target-subtitle .is-small {
+        font-size: 0.78em;
       }
 
       .card-target .list,
@@ -521,13 +588,40 @@
         align-content: center;
         min-height: 270px;
         padding: 42px 48px;
-        border: 6px solid var(--yellow);
+        border: 0;
         background: rgba(255, 196, 0, 0.12);
       }
 
-      .card-transfer h2 {
+      .headline-note {
+        justify-self: end;
+        margin: -14px 0 -8px;
+        color: var(--red);
+        font-size: 30px;
+        line-height: 1;
+        font-weight: 1000;
+        text-shadow:
+          0 3px 0 #000,
+          0 0 18px #000;
+      }
+
+      .headline-title {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: end;
+        gap: 28px;
+        max-width: none;
+        font-size: 86px;
+      }
+
+      .headline-title span {
+        display: block;
         color: var(--yellow);
-        font-size: 126px;
+        line-height: 0.96;
+        font-weight: 1000;
+      }
+
+      .card-transfer .lead {
+        font-weight: 500;
       }
 
       .card-team .mascot {
@@ -555,10 +649,18 @@
 
       .card-coach .coach-layout {
         display: grid;
-        grid-template-columns: 480px 1fr;
-        gap: 36px;
+        grid-template-columns: 340px 1fr;
+        gap: 24px;
         align-items: stretch;
-        max-width: 1480px;
+        width: 100%;
+      }
+
+      .card-coach .card-inner {
+        gap: 16px;
+      }
+
+      .card-coach h2 {
+        font-size: 70px;
       }
 
       .coach-photo {
@@ -594,9 +696,171 @@
         font-weight: 1000;
       }
 
+      .card-coach .list li {
+        min-height: 48px;
+        padding: 10px 18px;
+        font-size: 26px;
+      }
+
+      .coach-strengths {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 12px;
+        width: 100%;
+        margin-top: 8px;
+      }
+
+      .coach-strengths h3 {
+        grid-column: 1 / -1;
+        margin: 0;
+        color: var(--yellow);
+        font-size: 26px;
+        line-height: 1;
+        font-weight: 1000;
+      }
+
+      .coach-strengths div {
+        min-height: 152px;
+        height: 100%;
+        padding: 12px 14px;
+        border: 2px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .coach-strengths span {
+        color: var(--yellow);
+        font-size: 26px;
+        font-weight: 1000;
+      }
+
+      .coach-strengths p {
+        margin: 6px 0 0;
+        color: var(--paper);
+        font-size: 21px;
+        line-height: 1.18;
+        font-weight: 650;
+      }
+
+      .card-catcher .card-inner {
+        grid-template-rows: auto auto 1fr auto;
+        gap: 22px;
+      }
+
+      .scholarship-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: 560px 1fr;
+        align-content: start;
+        align-items: start;
+        min-height: 650px;
+        padding: 38px 48px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .scholarship-card > img {
+        position: absolute;
+        top: 28px;
+        right: 0;
+        z-index: 1;
+        width: 540px;
+        opacity: 1;
+      }
+
+      .scholarship-title {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        gap: 8px;
+      }
+
+      .scholarship-title span {
+        color: var(--yellow);
+        font-size: 36px;
+        font-weight: 1000;
+      }
+
+      .scholarship-title strong {
+        color: var(--paper);
+        font-size: 112px;
+        line-height: 0.94;
+        font-weight: 1000;
+      }
+
+      .card-catcher h2 {
+        position: relative;
+        z-index: 2;
+        grid-column: 2;
+        max-width: none;
+        padding-right: 430px;
+        color: var(--paper);
+        font-size: 56px;
+        white-space: nowrap;
+      }
+
+      .check-title {
+        position: relative;
+        color: var(--yellow);
+      }
+
+      .check-title::before {
+        content: "✓";
+        position: absolute;
+        left: 50%;
+        bottom: 70%;
+        transform: translateX(-50%);
+        color: var(--yellow);
+        font-size: 220px;
+        line-height: 1;
+        text-shadow: 0 8px 0 #000;
+      }
+
+      .card-catcher .list {
+        position: relative;
+        z-index: 2;
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-top: 34px;
+      }
+
+      .card-catcher .list li {
+        font-size: 31px;
+      }
+
+      .hip-word {
+        position: absolute;
+        z-index: 2;
+        color: var(--yellow);
+        font-size: 56px;
+        line-height: 1;
+        font-weight: 1000;
+        text-shadow: 0 5px 0 #000;
+      }
+
+      .hip-word.hip {
+        top: 116px;
+        right: 470px;
+        transform: rotate(-24deg) skewX(-8deg);
+      }
+
+      .hip-word.hot {
+        top: 186px;
+        right: 390px;
+        transform: rotate(22deg) skewX(7deg);
+      }
+
       .card-position .card-inner {
-        grid-template-rows: auto auto auto 1fr auto;
+        align-content: start;
+        grid-template-rows: auto auto auto auto auto;
         gap: 24px;
+      }
+
+      .card-position .positions {
+        align-self: start;
+      }
+
+      .card-position .position {
+        height: 340px;
       }
 
       .card-position .mascot {
@@ -642,19 +906,20 @@
     <nav class="capture-nav" aria-label="캡처 카드 바로가기">
       <strong>세종BC 이미지 카드</strong>
       <a href="#card-01">01 대표</a>
-      <a href="#card-02">02 대상</a>
-      <a href="#card-03">03 이적</a>
-      <a href="#card-04">04 팀 소개</a>
-      <a href="#card-05">05 훈련</a>
-      <a href="#card-06">06 코칭</a>
-      <a href="#card-07">07 포지션</a>
-      <a href="#card-08">08 추천</a>
+      <a href="#card-02">02 코칭</a>
+      <a href="#card-03">03 대상</a>
+      <a href="#card-04">04 포수</a>
+      <a href="#card-05">05 이적</a>
+      <a href="#card-06">06 팀 소개</a>
+      <a href="#card-07">07 훈련</a>
+      <a href="#card-08">08 포지션</a>
+      <a href="#card-09">09 추천</a>
     </nav>
 
     <main class="capture-page">
       <section id="card-01" class="capture-card card-hero" aria-label="대표 이미지 선수모집 공고">
-        <img class="watermark" src="imgs/logo/SejongBC_logo_white_star_gray_circle_transparent.png" alt="" />
-        <img class="mascot" src="imgs/mascot/002_batting-transparent.png" alt="" />
+        <img class="photo-bg hero-photo" src="imgs/back/photo_001.png" alt="" />
+        <img class="mascot hero-player" src="imgs/mascot/008_back-transparent.png" alt="" />
         <div class="card-inner">
           <div class="brand-row">
             <div class="brand">
@@ -664,8 +929,9 @@
             <span class="card-number">01</span>
           </div>
           <div>
-            <p class="eyebrow">세종시 유일 고등부(U-18) 야구부</p>
-            <h1>세종 BC <span>선수모집</span></h1>
+            <p class="eyebrow hero-kicker">성장을 향해 열려있는 기회!</p>
+            <p class="eyebrow hero-team-line">세종특별자치시 유일 U-18 야구팀!</p>
+            <h1>&nbsp;&nbsp;&nbsp;세종BC <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;선수모집</span></h1>
           </div>
           <div class="badge-row">
             <span class="badge is-yellow">이적 패널티 없음</span>
@@ -679,115 +945,7 @@
         </div>
       </section>
 
-      <section id="card-02" class="capture-card card-target" aria-label="모집 대상 카드">
-        <img class="watermark" src="imgs/logo/SejongBC_logo_white_star_gray_circle_transparent.png" alt="" />
-        <img class="mascot" src="imgs/mascot/001_normal-transparent.png" alt="" />
-        <div class="card-inner">
-          <div class="brand-row">
-            <div class="brand">
-              <img src="imgs/logo/SejongBC_init_logo_yellow_black_transparent.png" alt="" />
-              <span>SEJONG BC RECRUIT</span>
-            </div>
-            <span class="card-number">02</span>
-          </div>
-          <p class="eyebrow">모집 대상</p>
-          <h2>현재 고등부 선수 및 중학교 3학년 선수</h2>
-          <ul class="list">
-            <li>출전 기회 확대를 고민하는 선수</li>
-            <li>새로운 팀 환경에서 다시 도전하고 싶은 선수</li>
-            <li>실전 경험을 통해 성장하고 싶은 선수</li>
-            <li>지도자와 소통하며 훈련하고 싶은 선수</li>
-          </ul>
-          <div class="info-strip">
-            <div class="info-box"><span>상담</span><strong>현 1, 2학년 선수</strong></div>
-            <div class="info-box"><span>모집</span><strong>중학교 3학년 상시</strong></div>
-            <div class="info-box"><span>절차</span><strong>상담 및 테스트 가능</strong></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="card-03" class="capture-card card-transfer" aria-label="이적 안내 카드">
-        <img class="watermark" src="imgs/logo/SejongBC_logo_white_star_warm_darkgray_circle_transparent.png" alt="" />
-        <div class="card-inner">
-          <div class="brand-row">
-            <div class="brand">
-              <img src="imgs/logo/SejongBC_init_logo_yellow_black_transparent.png" alt="" />
-              <span>TRANSFER GUIDE</span>
-            </div>
-            <span class="card-number">03</span>
-          </div>
-          <div class="headline-box">
-            <p class="eyebrow">새로운 팀에서 공백 없이 도전할 수 있는 기회</p>
-            <h2>이적 패널티 없음</h2>
-          </div>
-          <p class="lead">
-            세종 BC는 이적을 고민하는 선수들이 경기 출전 공백에 대한 부담을 줄이고,
-            새로운 환경에서 빠르게 적응할 수 있도록 상담을 진행합니다.
-          </p>
-          <ul class="list">
-            <li>이적 상담 가능</li>
-            <li>포지션별 출전 기회 상담</li>
-            <li>선수 상황에 따른 개별 상담</li>
-          </ul>
-          <p class="note">세부 사항은 선수의 등록 및 소속 상황에 따라 상담을 통해 확인합니다.</p>
-        </div>
-      </section>
-
-      <section id="card-04" class="capture-card card-team" aria-label="팀 소개 카드">
-        <img class="photo-bg" src="imgs/team/20260211_001.jpeg" alt="" />
-        <img class="watermark" src="imgs/logo/SejongBC_logo_white_star_gray_circle_transparent.png" alt="" />
-        <img class="mascot" src="imgs/mascot/005_fielding-grass-sketch-clean-transparent.png" alt="" />
-        <div class="card-inner">
-          <div class="brand-row">
-            <div class="brand">
-              <img src="imgs/logo/SejongBC_init_logo_yellow_black_transparent.png" alt="" />
-              <span>ABOUT SEJONG BC</span>
-            </div>
-            <span class="card-number">04</span>
-          </div>
-          <p class="eyebrow">세종 BC는 어떤 팀인가요?</p>
-          <h2>세종시를 기반으로 성장 중인 고등부(U-18) 야구팀입니다.</h2>
-          <ul class="list">
-            <li><strong>세종시 유일</strong> 고등부 야구부</li>
-            <li>선수, 지도자, 학부모가 함께 만들어가는 신생팀</li>
-            <li>주말리그 및 전국대회 참가를 통한 공식 경기 경험</li>
-            <li>세종시 대표팀으로 전국체전 출전 가능</li>
-          </ul>
-          <p class="note">성장 과정 안에서 더 많은 실전 기회와 팀 경험을 만들어갑니다.</p>
-        </div>
-      </section>
-
-      <section id="card-05" class="capture-card card-field" aria-label="훈련 환경 카드">
-        <img class="photo-bg" src="imgs/field/Baseball_field_01_KoreaBaseballPark.png" alt="" />
-        <div class="card-inner">
-          <div class="brand-row">
-            <div class="brand">
-              <img src="imgs/logo/SejongBC_init_logo_yellow_black_transparent.png" alt="" />
-              <span>TRAINING FIELD</span>
-            </div>
-            <span class="card-number">05</span>
-          </div>
-          <p class="eyebrow">훈련 환경</p>
-          <h2>세종과 조치원을 기반으로 야외 구장과 실내 연습장을 함께 활용합니다.</h2>
-          <div class="photo-grid">
-            <div class="photo-tile">
-              <img src="imgs/field/Baseball_field_01_KoreaBaseballPark.png" alt="" />
-              <span>조치원 코리아베이스볼파크</span>
-            </div>
-            <div class="photo-tile">
-              <img src="imgs/field/Baseball_Field_03_Geumgang.png" alt="" />
-              <span>세종 금강야구장</span>
-            </div>
-            <div class="photo-tile">
-              <img src="imgs/field/Baseball_Field_02_Bugang1.png" alt="" />
-              <span>세종 부강야구장</span>
-            </div>
-          </div>
-          <p class="note">120평 규모 실내 연습장도 함께 활용하며, 날씨와 시즌에 맞춰 기본기와 실전 대비 훈련을 이어갑니다.</p>
-        </div>
-      </section>
-
-      <section id="card-06" class="capture-card card-coach" aria-label="코칭스태프 카드">
+      <section id="card-02" class="capture-card card-coach" aria-label="코칭스태프 카드">
         <img class="watermark" src="imgs/logo/SejongBC_logo_white_star_gray_circle_transparent.png" alt="" />
         <div class="card-inner">
           <div class="brand-row">
@@ -795,7 +953,7 @@
               <img src="imgs/logo/SejongBC_init_logo_yellow_black_transparent.png" alt="" />
               <span>COACHING STAFF</span>
             </div>
-            <span class="card-number">06</span>
+            <span class="card-number">02</span>
           </div>
           <p class="eyebrow">코칭스태프</p>
           <h2>선수의 가능성과 성장 과정을 함께 보는 지도</h2>
@@ -817,11 +975,163 @@
               </ul>
             </div>
           </div>
-          <p class="note">선수의 포지션, 출전 기회, 성장 방향을 함께 상담합니다.</p>
+          <div class="coach-strengths">
+            <h3>감독으로서의 강점</h3>
+            <div>
+              <span>함께 뛰는 젊은 지도력</span>
+              <p>선수의 기술, 태도, 성장 속도를 가까이에서 세심하게 보고 빠르게 피드백하며, 젊은 감각으로 선수와 학부모에게 현실적인 성장 방향을 제시합니다.</p>
+            </div>
+            <div>
+              <span>포지션 전환을 아는 지도</span>
+              <p>포수와 투수 전환을 직접 겪어 배터리 호흡, 수비 역할, 포지션별 고민을 이해하고 선수에게 맞는 전환 가능성을 함께 찾습니다.</p>
+            </div>
+            <div>
+              <span>부드럽고 유연한 소통</span>
+              <p>미국 진출로 경험한 다른 소통과 배움의 방식을 바탕으로, 경직된 지시보다 선수와 대화하며 자율적으로 성장하는 훈련을 지향합니다.</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="card-07" class="capture-card card-position" aria-label="모집 포지션 카드">
+      <section id="card-03" class="capture-card card-target" aria-label="모집 대상 카드">
+        <img class="watermark" src="imgs/logo/SejongBC_logo_white_star_warm_darkgray_circle_transparent.png" alt="" />
+        <img class="mascot" src="imgs/mascot/recruit-target-panther.png" alt="" />
+        <div class="card-inner">
+          <div class="brand-row">
+            <div class="brand">
+              <img src="imgs/logo/SejongBC_init_logo_yellow_black_transparent.png" alt="" />
+              <span>SEJONG BC RECRUIT</span>
+            </div>
+            <span class="card-number">03</span>
+          </div>
+          <p class="eyebrow">모집 대상</p>
+          <h2>1~2학년 이적 선수</h2>
+          <div class="positions">
+            <div class="position"><span>내야수</span><strong>2명</strong></div>
+            <div class="position"><span>외야수</span><strong>2명</strong></div>
+            <div class="position"><span>투수</span><strong>2명</strong></div>
+            <div class="position"><span>포수</span><strong>1명</strong></div>
+          </div>
+          <p class="target-subtitle"><span class="is-small">현재 중3</span> 신입생 '상시 모집' 테스트 중</p>
+        </div>
+      </section>
+
+      <section id="card-04" class="capture-card card-catcher" aria-label="포수 장학 선발 카드">
+        <img class="watermark" src="imgs/logo/SejongBC_logo_white_star_gray_circle_transparent.png" alt="" />
+        <div class="card-inner">
+          <div class="brand-row">
+            <div class="brand">
+              <img src="imgs/logo/SejongBC_init_logo_yellow_black_transparent.png" alt="" />
+              <span>CATCHER SCHOLARSHIP</span>
+            </div>
+            <span class="card-number">04</span>
+          </div>
+          <p class="eyebrow">포수 우선 선발</p>
+          <div class="scholarship-card">
+            <img src="imgs/mascot/007_catcher_hiphop-gold-transparent.png" alt="" />
+            <span class="hip-word hip">HIP</span>
+            <span class="hip-word hot">HOT</span>
+            <div class="scholarship-title">
+              <span>장학 혜택 상담</span>
+              <strong>포수<br />우선 선발</strong>
+            </div>
+            <h2>포수 포지션은 <span class="check-title">장학</span> 선발로 상담합니다.</h2>
+            <ul class="list">
+              <li>포수 출신 감독, 포수 포지션에 대한 상세 지도 가능</li>
+              <li>블로킹, 송구, 투수 리드 등 포수 기본기 집중 훈련</li>
+              <li>경기 운영과 수비 리더십까지 함께 성장할 수 있는 환경</li>
+              <li>포수 포지션 지원자는 장학 선발 대상으로 개별 상담</li>
+            </ul>
+          </div>
+          <p class="note">세부 장학 혜택은 선수의 기량, 성장 가능성, 테스트 결과를 바탕으로 상담합니다.</p>
+        </div>
+      </section>
+
+      <section id="card-05" class="capture-card card-transfer" aria-label="이적 안내 카드">
+        <img class="watermark" src="imgs/logo/SejongBC_logo_white_star_warm_darkgray_circle_transparent.png" alt="" />
+        <div class="card-inner">
+          <div class="brand-row">
+            <div class="brand">
+              <img src="imgs/logo/SejongBC_init_logo_yellow_black_transparent.png" alt="" />
+              <span>TRANSFER GUIDE</span>
+            </div>
+            <span class="card-number">05</span>
+          </div>
+          <p class="headline-note">* 세부 사항은 선수의 등록 및 소속 상황에 따라 상담을 통해 확인합니다.</p>
+          <div class="headline-box">
+            <h2 class="headline-title">
+              <span class="main-title">이적 패널티 없음</span>
+              <span class="sub-title">새로운 팀에서 공백 없이 도전할 수 있는 기회</span>
+            </h2>
+          </div>
+          <p class="lead">
+            세종 BC는 이적을 고민하는 선수들이 경기 출전 공백에 대한 부담을 줄이고,
+            새로운 환경에서 빠르게 적응할 수 있도록 상담을 진행합니다.
+          </p>
+          <ul class="list">
+            <li>출전 기회 확대를 고민하는 선수</li>
+            <li>새로운 팀 환경에서 다시 도전하고 싶은 선수</li>
+            <li>실전 경험을 통해 성장하고 싶은 선수</li>
+            <li>지도자와 소통하며 훈련하고 싶은 선수</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="card-06" class="capture-card card-team" aria-label="팀 소개 카드">
+        <img class="photo-bg" src="imgs/team/20260211_001.jpeg" alt="" />
+        <img class="watermark" src="imgs/logo/SejongBC_logo_white_star_gray_circle_transparent.png" alt="" />
+        <img class="mascot" src="imgs/mascot/005_fielding-grass-sketch-clean-transparent.png" alt="" />
+        <div class="card-inner">
+          <div class="brand-row">
+            <div class="brand">
+              <img src="imgs/logo/SejongBC_init_logo_yellow_black_transparent.png" alt="" />
+              <span>ABOUT SEJONG BC</span>
+            </div>
+            <span class="card-number">06</span>
+          </div>
+          <p class="eyebrow">세종 BC는 어떤 팀인가요?</p>
+          <h2>세종시를 기반으로 성장 중인 고등부(U-18) 야구팀입니다.</h2>
+          <ul class="list">
+            <li><strong>세종시 유일</strong> 고등부 야구부</li>
+            <li>선수, 지도자, 학부모가 함께 만들어가는 신생팀</li>
+            <li>주말리그 및 전국대회 참가를 통한 공식 경기 경험</li>
+            <li>세종시 대표팀으로 전국체전 출전 가능</li>
+          </ul>
+          <p class="note">성장 과정 안에서 더 많은 실전 기회와 팀 경험을 만들어갑니다.</p>
+        </div>
+      </section>
+
+      <section id="card-07" class="capture-card card-field" aria-label="훈련 환경 카드">
+        <img class="photo-bg" src="imgs/field/Baseball_field_01_KoreaBaseballPark.png" alt="" />
+        <div class="card-inner">
+          <div class="brand-row">
+            <div class="brand">
+              <img src="imgs/logo/SejongBC_init_logo_yellow_black_transparent.png" alt="" />
+              <span>TRAINING FIELD</span>
+            </div>
+            <span class="card-number">07</span>
+          </div>
+          <p class="eyebrow">훈련 환경</p>
+          <h2>세종과 조치원을 기반으로 야외 구장과 실내 연습장을 함께 활용합니다.</h2>
+          <div class="photo-grid">
+            <div class="photo-tile">
+              <img src="imgs/field/Baseball_field_01_KoreaBaseballPark.png" alt="" />
+              <span>조치원 코리아베이스볼파크</span>
+            </div>
+            <div class="photo-tile">
+              <img src="imgs/field/Baseball_Field_03_Geumgang.png" alt="" />
+              <span>세종 금강야구장</span>
+            </div>
+            <div class="photo-tile">
+              <img src="imgs/field/Baseball_Field_02_Bugang1.png" alt="" />
+              <span>세종 부강야구장</span>
+            </div>
+          </div>
+          <p class="note">120평 규모 실내 연습장도 함께 활용하며, 날씨와 시즌에 맞춰 기본기와 실전 대비 훈련을 이어갑니다.</p>
+        </div>
+      </section>
+
+      <section id="card-08" class="capture-card card-position" aria-label="모집 포지션 카드">
         <img class="watermark" src="imgs/logo/SejongBC_logo_white_star_gray_circle_transparent.png" alt="" />
         <img class="mascot" src="imgs/mascot/004_pitching-transparent.png" alt="" />
         <div class="card-inner">
@@ -830,7 +1140,7 @@
               <img src="imgs/logo/SejongBC_init_logo_yellow_black_transparent.png" alt="" />
               <span>POSITION NEEDS</span>
             </div>
-            <span class="card-number">07</span>
+            <span class="card-number">08</span>
           </div>
           <p class="eyebrow">모집 포지션</p>
           <h2>함께 훈련하고 함께 경기를 뛰어갈 선수를 모집합니다.</h2>
@@ -844,7 +1154,7 @@
         </div>
       </section>
 
-      <section id="card-08" class="capture-card card-recommend" aria-label="추천 선수 유형 카드">
+      <section id="card-09" class="capture-card card-recommend" aria-label="추천 선수 유형 카드">
         <img class="watermark" src="imgs/logo/SejongBC_logo_white_star_warm_darkgray_circle_transparent.png" alt="" />
         <img class="mascot" src="imgs/mascot/003_catcher-pickoff-transparent.png" alt="" />
         <div class="card-inner">
@@ -853,7 +1163,7 @@
               <img src="imgs/logo/SejongBC_init_logo_yellow_black_transparent.png" alt="" />
               <span>WHO WE NEED</span>
             </div>
-            <span class="card-number">08</span>
+            <span class="card-number">09</span>
           </div>
           <p class="eyebrow">이런 선수에게 추천합니다</p>
           <h2>세종 BC에서 새로운 가능성을 상담해 보시기 바랍니다.</h2>
