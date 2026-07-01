@@ -558,8 +558,8 @@
       }
 
       .target-subtitle {
-        margin: 0;
-        color: var(--yellow);
+        margin: 18px 0 24px;
+        color: var(--paper);
         font-size: 82px;
         line-height: 1;
         font-weight: 1000;
@@ -567,6 +567,47 @@
 
       .target-subtitle .is-small {
         font-size: 0.78em;
+      }
+
+      .target-info-cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        max-width: 1440px;
+      }
+
+      .target-info-card {
+        display: grid;
+        align-content: center;
+        min-height: 112px;
+        padding: 18px 22px;
+        border: 2px solid rgba(255, 255, 255, 0.18);
+        border-left: 10px solid var(--yellow);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .target-info-card span {
+        color: var(--yellow);
+        font-size: 24px;
+        line-height: 1;
+        font-weight: 1000;
+      }
+
+      .target-info-card strong {
+        margin-top: 8px;
+        color: var(--paper);
+        font-size: 34px;
+        line-height: 1.05;
+        font-weight: 1000;
+      }
+
+      .target-process {
+        margin: 10px 0 0;
+        color: var(--red);
+        font-size: 32px;
+        line-height: 1;
+        font-weight: 1000;
+        text-shadow: 0 3px 0 #000;
       }
 
       .card-target .list,
@@ -610,7 +651,7 @@
         align-items: end;
         gap: 28px;
         max-width: none;
-        font-size: 86px;
+        font-size: 98px;
       }
 
       .headline-title span {
@@ -618,6 +659,11 @@
         color: var(--yellow);
         line-height: 0.96;
         font-weight: 1000;
+      }
+
+      .headline-title .sub-title {
+        font-size: 42px;
+        line-height: 1.02;
       }
 
       .card-transfer .lead {
@@ -907,7 +953,7 @@
       <strong>세종BC 이미지 카드</strong>
       <a href="#card-01">01 대표</a>
       <a href="#card-02">02 코칭</a>
-      <a href="#card-03">03 대상</a>
+      <a href="#card-03">03 포지션</a>
       <a href="#card-04">04 포수</a>
       <a href="#card-05">05 이적</a>
       <a href="#card-06">06 팀 소개</a>
@@ -993,7 +1039,7 @@
         </div>
       </section>
 
-      <section id="card-03" class="capture-card card-target" aria-label="모집 대상 카드">
+      <section id="card-03" class="capture-card card-target" aria-label="모집 포지션 카드">
         <img class="watermark" src="imgs/logo/SejongBC_logo_white_star_warm_darkgray_circle_transparent.png" alt="" />
         <img class="mascot" src="imgs/mascot/recruit-target-panther.png" alt="" />
         <div class="card-inner">
@@ -1004,7 +1050,7 @@
             </div>
             <span class="card-number">03</span>
           </div>
-          <p class="eyebrow">모집 대상</p>
+          <p class="eyebrow">모집 포지션</p>
           <h2>1~2학년 이적 선수</h2>
           <div class="positions">
             <div class="position"><span>내야수</span><strong>2명</strong></div>
@@ -1012,7 +1058,22 @@
             <div class="position"><span>투수</span><strong>2명</strong></div>
             <div class="position"><span>포수</span><strong>1명</strong></div>
           </div>
-          <p class="target-subtitle"><span class="is-small">현재 중3</span> 신입생 '상시 모집' 테스트 중</p>
+          <p class="target-subtitle">신입생 '상시 모집' 테스트 중 <span class="is-small">( 현재 중3 )</span></p>
+          <div class="target-info-cards">
+            <div class="target-info-card">
+              <span>이적 선수 상담</span>
+              <strong>1~2학년 이적 선수</strong>
+            </div>
+            <div class="target-info-card">
+              <span>신입생 상담</span>
+              <strong>현재 중3 상시 모집</strong>
+            </div>
+            <div class="target-info-card">
+              <span>고3 문의</span>
+              <strong>상황별 상담 가능</strong>
+            </div>
+          </div>
+          <p class="target-process">절차 · 문의 후 상담 및 테스트</p>
         </div>
       </section>
 
