@@ -411,7 +411,7 @@
 
       .photo-tile span {
         position: absolute;
-        left: 12px;
+        left: -48px;
         right: 12px;
         bottom: 12px;
         padding: 9px 11px;
@@ -761,19 +761,30 @@
       }
 
       .card-team .mascot {
-        right: -12px;
-        bottom: -54px;
-        width: 500px;
+        left: -48px;
+        right: auto;
+        bottom: -34px;
+        width: 620px;
       }
 
       .card-team .card-inner {
+        grid-template-columns: 520px 1fr;
         grid-template-rows: auto auto auto 1fr auto;
+        column-gap: 32px;
         gap: 20px;
       }
 
+      .card-team .brand-row,
+      .card-team .eyebrow,
+      .card-team h2,
+      .card-team .team-story,
+      .card-team .note {
+        grid-column: 2;
+      }
+
       .card-team h2 {
-        max-width: 1240px;
-        font-size: 72px;
+        max-width: 100%;
+        font-size: 64px;
         line-height: 1.02;
       }
 
@@ -781,7 +792,7 @@
         display: grid;
         grid-template-columns: 1.08fr 0.92fr;
         gap: 22px;
-        max-width: 1260px;
+        max-width: 100%;
       }
 
       .team-story-card {
@@ -1352,7 +1363,7 @@
       <section id="card-07" class="capture-card card-team" aria-label="팀 소개 카드">
         <img class="photo-bg" src="imgs/team/20260211_001.jpeg" alt="" />
         <img class="watermark" src="imgs/logo/SejongBC_logo_white_star_gray_circle_transparent.png" alt="" />
-        <img class="mascot" src="imgs/mascot/005_fielding-grass-sketch-clean-transparent.png" alt="" />
+        <img class="mascot" src="imgs/mascot/002_batting-transparent.png" alt="" />
         <div class="card-inner">
           <div class="brand-row">
             <div class="brand">
