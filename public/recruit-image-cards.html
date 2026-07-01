@@ -766,6 +766,50 @@
         width: 500px;
       }
 
+      .card-team .card-inner {
+        grid-template-rows: auto auto auto 1fr auto;
+        gap: 20px;
+      }
+
+      .card-team h2 {
+        max-width: 1240px;
+        font-size: 72px;
+        line-height: 1.02;
+      }
+
+      .team-story {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 22px;
+        max-width: 1260px;
+      }
+
+      .team-story-card {
+        display: grid;
+        align-content: start;
+        gap: 12px;
+        min-height: 178px;
+        padding: 24px 28px;
+        border-left: 9px solid var(--yellow);
+        background: rgba(0, 0, 0, 0.58);
+        box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.11);
+      }
+
+      .team-story-card strong {
+        color: var(--yellow);
+        font-size: 32px;
+        line-height: 1;
+        font-weight: 1000;
+      }
+
+      .team-story-card p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 28px;
+        line-height: 1.18;
+        font-weight: 750;
+      }
+
       .card-field .card-inner {
         align-content: start;
         grid-template-rows: auto auto auto auto auto;
@@ -1319,14 +1363,26 @@
             <span class="card-number">07</span>
           </div>
           <p class="eyebrow">세종 BC는 어떤 팀인가요?</p>
-          <h2>세종시를 기반으로 성장 중인 고등부(U-18) 야구팀입니다.</h2>
-          <ul class="list">
-            <li><strong>세종시 유일</strong> 고등부 야구부</li>
-            <li>선수, 지도자, 학부모가 함께 만들어가는 신생팀</li>
-            <li>주말리그 및 전국대회 참가를 통한 공식 경기 경험</li>
-            <li>세종시 대표팀으로 전국체전 출전 가능</li>
-          </ul>
-          <p class="note">성장 과정 안에서 더 많은 실전 기회와 팀 경험을 만들어갑니다.</p>
+          <h2>완성된 팀을 말하기보다, 함께 만들어가는 성장 단계의 신생팀입니다.</h2>
+          <div class="team-story">
+            <div class="team-story-card">
+              <strong>2025년 겨울부터 본격 훈련</strong>
+              <p>2024년 창단 준비를 시작해 선수, 지도자, 학부모가 함께 팀의 기준과 분위기를 만들어가고 있습니다.</p>
+            </div>
+            <div class="team-story-card">
+              <strong>작은 승리가 만든 자신감</strong>
+              <p>최근 시즌 충남권 팀을 상대로 승리를 경험하며 선수들이 성장 가능성을 확인했습니다.</p>
+            </div>
+            <div class="team-story-card">
+              <strong>위축보다 도전하는 분위기</strong>
+              <p>늦게 시작한 선수들도 절실하게 훈련하며, 감독은 선수 한 명 한 명의 과정을 세심하게 살핍니다.</p>
+            </div>
+            <div class="team-story-card">
+              <strong>새로운 가능성을 만드는 팀</strong>
+              <p>출전 기회가 부족했던 선수, 새 환경에서 다시 도전하고 싶은 선수에게 성장의 기회를 열어갑니다.</p>
+            </div>
+          </div>
+          <p class="note">치열한 경쟁만 앞세우기보다 서로의 성장을 응원하고 의지하는 팀 분위기를 지향합니다.</p>
         </div>
       </section>
 
