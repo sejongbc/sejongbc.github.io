@@ -411,7 +411,7 @@
 
       .photo-tile span {
         position: absolute;
-        left: -48px;
+        left: 12px;
         right: 12px;
         bottom: 12px;
         padding: 9px 11px;
@@ -1102,6 +1102,36 @@
         font-size: 36px;
       }
 
+      .card-recommend .contact {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-content: center;
+        gap: 12px;
+      }
+
+      .contact-main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 22px;
+      }
+
+      .contact-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .contact-links span {
+        padding: 8px 14px;
+        border: 2px solid rgba(255, 196, 0, 0.38);
+        background: rgba(255, 196, 0, 0.12);
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 25px;
+        line-height: 1;
+        font-weight: 950;
+      }
+
       .card-recommend .mascot {
         right: -18px;
         bottom: -72px;
@@ -1410,16 +1440,22 @@
           <p class="eyebrow">이런 선수에게 추천합니다</p>
           <h2>세종 BC에서 새로운 가능성을 상담해 보시기 바랍니다.</h2>
           <ul class="list">
-            <li>이적 패널티 없이 빠르게 투입되어 더 많은 경기 경험으로 성장하고 싶은 선수</li>
-            <li>더 많은 실전 경험이 필요한 선수</li>
-            <li>출전 기회 확대를 고민하는 선수</li>
-            <li>새로운 환경에서 다시 시작하고 싶은 선수</li>
+            <li>성장 의지가 강하고 훈련 태도와 기본기를 성실히 쌓아갈 선수</li>
+            <li>출전 기회를 넓히고 실전에서 성장하고 싶은 선수</li>
             <li>팀과 함께 성장하는 분위기를 원하는 선수</li>
             <li>지도자와 충분히 소통하며 훈련하고 싶은 선수</li>
+            <li>새 환경에서 다시 도전할 의지가 있는 선수</li>
+            <li>이적 패널티 없이 빠르게 투입되어 더 많은 경기 경험으로 성장하고 싶은 선수</li>
           </ul>
           <div class="contact">
-            <span>상담 문의 · 신진호 감독</span>
-            <strong>010-6740-0480</strong>
+            <div class="contact-main">
+              <span>상담 문의 · 신진호 감독</span>
+              <strong>010-6740-0480</strong>
+            </div>
+            <div class="contact-links">
+              <span>Instagram · https://www.instagram.com/sejongbc25</span>
+              <span>Homepage · https://sejongbc.github.io</span>
+            </div>
           </div>
         </div>
       </section>
